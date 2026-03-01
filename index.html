@@ -438,14 +438,20 @@ body.lang-ja .ko { display: none; }
 
   <div class="tabs-wrap">
     <nav class="tabs">
-      <button class="tab-btn active" data-tab="recommend">
-        <span class="ko">추천 장소</span><span class="ja">スポット</span>
+      <button class="tab-btn active" data-tab="gangbuk">
+        <span class="ko">🗺 강북</span><span class="ja">🗺 江北</span>
+      </button>
+      <button class="tab-btn" data-tab="gangnam">
+        <span class="ko">✨ 강남</span><span class="ja">✨ 江南</span>
+      </button>
+      <button class="tab-btn" data-tab="hangang">
+        <span class="ko">🌊 한강</span><span class="ja">🌊 漢江</span>
       </button>
       <button class="tab-btn" data-tab="food">
-        <span class="ko">음식점</span><span class="ja">グルメ</span>
+        <span class="ko">🍜 음식점</span><span class="ja">🍜 グルメ</span>
       </button>
       <button class="tab-btn" data-tab="convenience">
-        <span class="ko">편의시설</span><span class="ja">便利施設</span>
+        <span class="ko">🏪 편의시설</span><span class="ja">🏪 便利施設</span>
       </button>
     </nav>
   </div>
@@ -453,10 +459,10 @@ body.lang-ja .ko { display: none; }
   <div class="content">
 
 ```
-<!-- RECOMMEND TAB -->
-<div id="recommend" class="tab-pane active">
-  <p class="section-title"><span class="ko">핵심 스팟</span><span class="ja">おすすめスポット</span></p>
-  <p class="section-desc"><span class="ko">관광 · 산책 중심</span><span class="ja">観光・散歩中心</span></p>
+<!-- 강북 TAB -->
+<div id="gangbuk" class="tab-pane active">
+  <p class="section-title"><span class="ko">강북 핵심 스팟</span><span class="ja">江北エリア スポット</span></p>
+  <p class="section-desc"><span class="ko">명동 · 종로 · 홍대 · 성수 지역</span><span class="ja">明洞・鍾路・弘大・聖水エリア</span></p>
   <div class="cards-grid">
 
     <!-- 명동 -->
@@ -492,8 +498,8 @@ body.lang-ja .ko { display: none; }
     <article class="card">
       <div class="carousel" data-index="0">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/N_Seoul_Tower_from_Bugaksan.jpg?width=600" alt="N서울타워" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🗼</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Namsan_Tower_Seoul.jpg?width=600" alt="N서울타워2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌆</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Namsan_Tower_(6907570553).jpg?width=600" alt="N서울타워" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🗼</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seongsu_Bridge_and_N_Seoul_Tower.jpg?width=600" alt="N서울타워2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌆</div>'"></div>
         </div>
         <div class="carousel-overlay"></div>
         <button class="carousel-btn prev">‹</button>
@@ -519,8 +525,8 @@ body.lang-ja .ko { display: none; }
     <article class="card">
       <div class="carousel" data-index="0">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/DDP_2014.jpg?width=600" alt="DDP" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏛️</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dongdaemun_Design_Plaza_and_Park.jpg?width=600" alt="DDP2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>✨</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/DongDaemun_Design_Plaza_(동대문디자인플라자_(DDP)),_Seoul,_South_Korea_(Unsplash_aNSniQXO424).jpg?width=600" alt="DDP" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏛️</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dongdaemun_Design_Plaza_at_night,_Seoul,_Korea.jpg?width=600" alt="DDP2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>✨</div>'"></div>
         </div>
         <div class="carousel-overlay"></div>
         <button class="carousel-btn prev">‹</button>
@@ -546,8 +552,8 @@ body.lang-ja .ko { display: none; }
     <article class="card">
       <div class="carousel" data-index="0">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cheonggyecheon_Seoul.jpg?width=600" alt="청계천" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌊</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cheonggyecheon_night_2.jpg?width=600" alt="청계천2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌙</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cheonggyecheon_evening_1.jpg?width=600" alt="청계천" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌊</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cheonggyecheon_Seoul_3.jpg?width=600" alt="청계천2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌙</div>'"></div>
         </div>
         <div class="carousel-overlay"></div>
         <button class="carousel-btn prev">‹</button>
@@ -573,8 +579,8 @@ body.lang-ja .ko { display: none; }
     <article class="card">
       <div class="carousel" data-index="0">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Namsangol_Hanok_Village_01.jpg?width=600" alt="한옥마을" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏯</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korea-Seoul-Namsangol_Hanok_Village-01.jpg?width=600" alt="한옥마을2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎋</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korea-Seoul-Namsangol-07.jpg?width=600" alt="한옥마을" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏯</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korea-Seoul-Namsangol_Hanok_Village-03.jpg?width=600" alt="한옥마을2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎋</div>'"></div>
         </div>
         <div class="carousel-overlay"></div>
         <button class="carousel-btn prev">‹</button>
@@ -600,8 +606,8 @@ body.lang-ja .ko { display: none; }
     <article class="card">
       <div class="carousel" data-index="0">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gyeongbokgung_Palace-Geunjeongjeon-02.jpg?width=600" alt="경복궁" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏰</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korea-Seoul-Gyeongbokgung-Changing.of.the.guard-02.jpg?width=600" alt="경복궁2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌸</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gyeongbokgung_2017_September.jpg?width=600" alt="경복궁" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏰</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gyeongbokgung_at_blue_hour_1X7A8069.jpg?width=600" alt="경복궁2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌸</div>'"></div>
         </div>
         <div class="carousel-overlay"></div>
         <button class="carousel-btn prev">‹</button>
@@ -627,8 +633,8 @@ body.lang-ja .ko { display: none; }
     <article class="card">
       <div class="carousel" data-index="0">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bukchon_Hanok_Village_Seoul.jpg?width=600" alt="북촌" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏘️</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bukchon-ro_11gil_Bukchon_Hanok_Village.jpg?width=600" alt="북촌2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌿</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korea-Seoul-Bukchon_Hanok_Village-01.jpg?width=600" alt="북촌" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏘️</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korea-Seoul-Bukchon_Hanok_Village-02.jpg?width=600" alt="북촌2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌿</div>'"></div>
         </div>
         <div class="carousel-overlay"></div>
         <button class="carousel-btn prev">‹</button>
@@ -655,7 +661,7 @@ body.lang-ja .ko { display: none; }
       <div class="carousel" data-index="0">
         <div class="carousel-track">
           <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seoul-Myeongdong-Catholic.Church-01.jpg?width=600" alt="명동성당" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>⛪</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Myeongdong_Cathedral_Seoul.jpg?width=600" alt="명동성당2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌟</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seoul-Myeongdong-Catholic.Church-01.jpg?width=600" alt="명동성당2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌟</div>'"></div>
         </div>
         <div class="carousel-overlay"></div>
         <button class="carousel-btn prev">‹</button>
@@ -681,8 +687,8 @@ body.lang-ja .ko { display: none; }
     <article class="card">
       <div class="carousel" data-index="0">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hongdae_street_Seoul.jpg?width=600" alt="홍대" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎵</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hongdae_Seoul_night.jpg?width=600" alt="홍대2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎨</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hongik_University_Gate.jpg?width=600" alt="홍대" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎵</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hongik_univ_gallery_in_the_street.jpg?width=600" alt="홍대2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎨</div>'"></div>
         </div>
         <div class="carousel-overlay"></div>
         <button class="carousel-btn prev">‹</button>
@@ -734,6 +740,274 @@ body.lang-ja .ko { display: none; }
   </div>
 </div>
 
+<!-- 강남 TAB -->
+<div id="gangnam" class="tab-pane">
+  <p class="section-title"><span class="ko">강남 핵심 스팟</span><span class="ja">江南エリア スポット</span></p>
+  <p class="section-desc"><span class="ko">가로수길 · COEX · 압구정 · 잠실</span><span class="ja">カロスキル・COEX・狎鴎亭・蚕室エリア</span></p>
+  <div class="cards-grid">
+
+    <!-- 가로수길 -->
+    <article class="card">
+      <div class="carousel" data-index="0">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Garosu-gil_Seoul.jpg?width=600" alt="가로수길" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌳</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sinsa_station_exit_8.jpg?width=600" alt="가로수길2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>☕</div>'"></div>
+        </div>
+        <button class="carousel-btn prev">‹</button>
+        <button class="carousel-btn next">›</button>
+      </div>
+      <div class="card-body">
+        <div class="card-name"><span class="ko">가로수길</span><span class="ja">カロスキル</span></div>
+        <div class="card-tag"><span class="ko">트렌디 · 쇼핑 · 카페</span><span class="ja">トレンド・ショッピング・カフェ</span></div>
+        <div class="card-desc">
+          <span class="ko">은행나무 가득한 감성 거리. 편집숍, 카페, 애플스토어까지. 골목 안쪽 세로수길도 꼭 들려야 함.</span>
+          <span class="ja">イチョウ並木の感性あふれる通り。セレクトショップ、カフェ、Apple Storeも。路地裏のセロスキルも必見。</span>
+        </div>
+        <div class="map-btns">
+          <a class="map-btn naver" href="https://map.naver.com/v5/search/가로수길" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
+          <a class="map-btn google" href="https://maps.google.com/?q=Garosu-gil+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+          <a class="map-btn apple" href="http://maps.apple.com/?q=Garosu-gil+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- COEX 별마당 도서관 -->
+    <article class="card">
+      <div class="carousel" data-index="0">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Starfield_Library_COEX_Seoul.jpg?width=600" alt="별마당" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>📚</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/DongDaemun_Design_Plaza_(동대문디자인플라자_(DDP)),_Seoul,_South_Korea_(Unsplash_aNSniQXO424).jpg?width=600" alt="코엑스" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🛍️</div>'"></div>
+        </div>
+        <button class="carousel-btn prev">‹</button>
+        <button class="carousel-btn next">›</button>
+      </div>
+      <div class="card-body">
+        <div class="card-name"><span class="ko">COEX 별마당 도서관</span><span class="ja">COEX 星のまど図書館</span></div>
+        <div class="card-tag"><span class="ko">쇼핑몰 · 인스타 명소</span><span class="ja">ショッピングモール・インスタ映え</span></div>
+        <div class="card-desc">
+          <span class="ko">13m 높이 책장이 압도적인 아시아 최대 지하 쇼핑몰. 입장 무료. 깡남스타일 동상도 근처에 있음.</span>
+          <span class="ja">13mの本棚が圧巻のアジア最大の地下ショッピングモール。入場無料。カンナムスタイル像も近くにあり。</span>
+        </div>
+        <div class="map-btns">
+          <a class="map-btn naver" href="https://map.naver.com/v5/search/COEX+별마당도서관" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
+          <a class="map-btn google" href="https://maps.google.com/?q=Starfield+Library+COEX+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+          <a class="map-btn apple" href="http://maps.apple.com/?q=COEX+Mall+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 봉은사 -->
+    <article class="card">
+      <div class="carousel" data-index="0">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Q17278985_Bongeunsa_A02.jpg?width=600" alt="봉은사" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🛕</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korea-Seoul-Bongeunsa-01.jpg?width=600" alt="봉은사2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌿</div>'"></div>
+        </div>
+        <button class="carousel-btn prev">‹</button>
+        <button class="carousel-btn next">›</button>
+      </div>
+      <div class="card-body">
+        <div class="card-name"><span class="ko">봉은사</span><span class="ja">奉恩寺</span></div>
+        <div class="card-tag"><span class="ko">사찰 · 힐링 · 역사</span><span class="ja">仏教寺院・癒し・歴史</span></div>
+        <div class="card-desc">
+          <span class="ko">1200년 역사의 도심 속 사찰. COEX 바로 옆인데 완전히 다른 세계. 28m 미륵불상이 인상적.</span>
+          <span class="ja">1200年の歴史を持つ都心の寺院。COEXのすぐ隣なのに別世界。28mの弥勒仏が印象的。</span>
+        </div>
+        <div class="map-btns">
+          <a class="map-btn naver" href="https://map.naver.com/v5/search/봉은사" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
+          <a class="map-btn google" href="https://maps.google.com/?q=Bongeunsa+Temple+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+          <a class="map-btn apple" href="http://maps.apple.com/?q=Bongeunsa+Temple+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 압구정 로데오 -->
+    <article class="card">
+      <div class="carousel" data-index="0">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Apgujeong_Rodeo_Street_Seoul.jpg?width=600" alt="압구정" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>💅</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Galleria_Department_Store_Seoul.jpg?width=600" alt="갤러리아" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🛍️</div>'"></div>
+        </div>
+        <button class="carousel-btn prev">‹</button>
+        <button class="carousel-btn next">›</button>
+      </div>
+      <div class="card-body">
+        <div class="card-name"><span class="ko">압구정 로데오</span><span class="ja">狎鴎亭ロデオ</span></div>
+        <div class="card-tag"><span class="ko">명품 · 뷰티 · 연예인</span><span class="ja">高級ブランド・ビューティー・芸能人</span></div>
+        <div class="card-desc">
+          <span class="ko">서울의 비버리힐스. 갤러리아 백화점, 하우스 도산, K-스타로드. 아이돌 픽업 스팟으로도 유명.</span>
+          <span class="ja">ソウルのビバリーヒルズ。ガレリア百貨店、ハウスドサン、K-STARロード。アイドルスポットとしても有名。</span>
+        </div>
+        <div class="map-btns">
+          <a class="map-btn naver" href="https://map.naver.com/v5/search/압구정로데오" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
+          <a class="map-btn google" href="https://maps.google.com/?q=Apgujeong+Rodeo+Street+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+          <a class="map-btn apple" href="http://maps.apple.com/?q=Apgujeong+Rodeo+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 잠실 롯데월드 -->
+    <article class="card">
+      <div class="carousel" data-index="0">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lotte_World_day_view_7.jpg?width=600" alt="롯데월드" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎡</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lotte_World_morning_view_5.jpg?width=600" alt="롯데타워" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏙️</div>'"></div>
+        </div>
+        <button class="carousel-btn prev">‹</button>
+        <button class="carousel-btn next">›</button>
+      </div>
+      <div class="card-body">
+        <div class="card-name"><span class="ko">잠실 롯데월드</span><span class="ja">蚕室 ロッテワールド</span></div>
+        <div class="card-tag"><span class="ko">테마파크 · 쇼핑 · 전망대</span><span class="ja">テーマパーク・ショッピング・展望台</span></div>
+        <div class="card-desc">
+          <span class="ko">세계 최대 실내 테마파크와 123층 롯데타워. 서울스카이 전망대에서 서울 전경 한눈에.</span>
+          <span class="ja">世界最大の室内テーマパークと123階建てロッテタワー。ソウルスカイ展望台からソウル全景を一望。</span>
+        </div>
+        <div class="map-btns">
+          <a class="map-btn naver" href="https://map.naver.com/v5/search/롯데월드+잠실" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
+          <a class="map-btn google" href="https://maps.google.com/?q=Lotte+World+Seoul+Jamsil" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+          <a class="map-btn apple" href="http://maps.apple.com/?q=Lotte+World+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 선릉 -->
+    <article class="card">
+      <div class="carousel" data-index="0">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seonjeongneung_Seoul.jpg?width=600" alt="선릉" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌲</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seoul_Gangnam_green_park.jpg?width=600" alt="선릉2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌿</div>'"></div>
+        </div>
+        <button class="carousel-btn prev">‹</button>
+        <button class="carousel-btn next">›</button>
+      </div>
+      <div class="card-body">
+        <div class="card-name"><span class="ko">선릉 · 정릉</span><span class="ja">宣陵・靖陵</span></div>
+        <div class="card-tag"><span class="ko">왕릉 · 산책 · 유네스코</span><span class="ja">王陵・散策・ユネスコ</span></div>
+        <div class="card-desc">
+          <span class="ko">빌딩 숲 강남 한복판의 조선 왕릉. 세계문화유산. 초록빛 잔디밭 산책이 힐링 그 자체.</span>
+          <span class="ja">ビル群の江南の中にある朝鮮王陵。世界文化遺産。緑の芝生の散策がとても癒される。</span>
+        </div>
+        <div class="map-btns">
+          <a class="map-btn naver" href="https://map.naver.com/v5/search/선릉정릉" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
+          <a class="map-btn google" href="https://maps.google.com/?q=Seonjeongneung+Royal+Tombs+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+          <a class="map-btn apple" href="http://maps.apple.com/?q=Seonjeongneung+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+<!-- 한강 TAB -->
+<div id="hangang" class="tab-pane">
+  <p class="section-title"><span class="ko">한강 즐기기</span><span class="ja">漢江を楽しむ</span></p>
+  <p class="section-desc"><span class="ko">피크닉 · 야경 · 액티비티</span><span class="ja">ピクニック・夜景・アクティビティ</span></p>
+  <div class="cards-grid">
+
+    <!-- 뚝섬한강공원 -->
+    <article class="card">
+      <div class="carousel" data-index="0">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ttukseom_Hangang_Park_Seoul.jpg?width=600" alt="뚝섬" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌸</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seoul_Forest_seen_from_Dongho_Bridge.jpg?width=600" alt="한강" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌊</div>'"></div>
+        </div>
+        <button class="carousel-btn prev">‹</button>
+        <button class="carousel-btn next">›</button>
+      </div>
+      <div class="card-body">
+        <div class="card-name"><span class="ko">뚝섬한강공원</span><span class="ja">トゥクソム漢江公園</span></div>
+        <div class="card-tag"><span class="ko">피크닉 · 자전거 · 수영장</span><span class="ja">ピクニック・自転車・プール</span></div>
+        <div class="card-desc">
+          <span class="ko">한강 피크닉의 성지. 편의점 치킨+맥주 세트로 돗자리 펼치는 문화가 유명. 여름엔 수영장도 오픈.</span>
+          <span class="ja">漢江ピクニックの聖地。コンビニチキン＋ビールでレジャーシートを広げる文化が有名。夏はプールもオープン。</span>
+        </div>
+        <div class="map-btns">
+          <a class="map-btn naver" href="https://map.naver.com/v5/search/뚝섬한강공원" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
+          <a class="map-btn google" href="https://maps.google.com/?q=Ttukseom+Han+River+Park+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+          <a class="map-btn apple" href="http://maps.apple.com/?q=Ttukseom+Han+River+Park" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 반포한강공원 / 달빛무지개분수 -->
+    <article class="card">
+      <div class="carousel" data-index="0">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Banpo_Bridge_Rainbow_Fountain_Seoul.jpg?width=600" alt="반포분수" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌈</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Namsan_and_Han_River_2022.jpg?width=600" alt="한강야경" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌃</div>'"></div>
+        </div>
+        <button class="carousel-btn prev">‹</button>
+        <button class="carousel-btn next">›</button>
+      </div>
+      <div class="card-body">
+        <div class="card-name"><span class="ko">반포 달빛무지개분수</span><span class="ja">盤浦 虹色噴水</span></div>
+        <div class="card-tag"><span class="ko">야경 · 분수쇼 · 인스타</span><span class="ja">夜景・噴水ショー・インスタ映え</span></div>
+        <div class="card-desc">
+          <span class="ko">기네스북 등재 세계 최장 교량 분수. 밤마다 음악과 함께 빛의 쇼. 반포공원에서 피크닉하며 관람 추천.</span>
+          <span class="ja">ギネス認定 世界最長の橋噴水。毎夜音楽に合わせた光のショー。盤浦公園でピクニックしながら観覧がおすすめ。</span>
+        </div>
+        <div class="map-btns">
+          <a class="map-btn naver" href="https://map.naver.com/v5/search/반포한강공원+달빛무지개분수" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
+          <a class="map-btn google" href="https://maps.google.com/?q=Banpo+Bridge+Rainbow+Fountain+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+          <a class="map-btn apple" href="http://maps.apple.com/?q=Banpo+Bridge+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 여의도한강공원 -->
+    <article class="card">
+      <div class="carousel" data-index="0">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yeouido_Night_View_2010.jpg?width=600" alt="여의도" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌙</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yeouido_view_20240528.jpg?width=600" alt="여의도2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌸</div>'"></div>
+        </div>
+        <button class="carousel-btn prev">‹</button>
+        <button class="carousel-btn next">›</button>
+      </div>
+      <div class="card-body">
+        <div class="card-name"><span class="ko">여의도한강공원</span><span class="ja">汝矣島漢江公園</span></div>
+        <div class="card-tag"><span class="ko">벚꽃 · 야경 · 피크닉</span><span class="ja">桜・夜景・ピクニック</span></div>
+        <div class="card-desc">
+          <span class="ko">봄 벚꽃 시즌엔 서울 최고 명소. 한강 야경 보며 피크닉. 세빛섬, 63빌딩도 근처.</span>
+          <span class="ja">春の桜シーズンはソウル最高のスポット。漢江の夜景を見ながらピクニック。セビッ島、63ビルも近く。</span>
+        </div>
+        <div class="map-btns">
+          <a class="map-btn naver" href="https://map.naver.com/v5/search/여의도한강공원" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
+          <a class="map-btn google" href="https://maps.google.com/?q=Yeouido+Han+River+Park+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+          <a class="map-btn apple" href="http://maps.apple.com/?q=Yeouido+Han+River+Park" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 서울숲 -->
+    <article class="card">
+      <div class="carousel" data-index="0">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seoul_Forest_seen_from_Dongho_Bridge.jpg?width=600" alt="서울숲" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🦌</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seongsu_Bridge_and_N_Seoul_Tower.jpg?width=600" alt="서울숲2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌿</div>'"></div>
+        </div>
+        <button class="carousel-btn prev">‹</button>
+        <button class="carousel-btn next">›</button>
+      </div>
+      <div class="card-body">
+        <div class="card-name"><span class="ko">서울숲</span><span class="ja">ソウルの森</span></div>
+        <div class="card-tag"><span class="ko">공원 · 사슴 · 성수동 인접</span><span class="ja">公園・鹿・聖水洞隣接</span></div>
+        <div class="card-desc">
+          <span class="ko">한강변 대형 공원. 귀여운 꽃사슴도 볼 수 있음. 성수동과 붙어있어 함께 코스로 묶으면 최고.</span>
+          <span class="ja">漢江沿いの大型公園。かわいいホンシュウジカも見られる。聖水洞と隣接していて一緒のコースにするのが◎。</span>
+        </div>
+        <div class="map-btns">
+          <a class="map-btn naver" href="https://map.naver.com/v5/search/서울숲" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
+          <a class="map-btn google" href="https://maps.google.com/?q=Seoul+Forest+Park" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+          <a class="map-btn apple" href="http://maps.apple.com/?q=Seoul+Forest+Park" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</div>
+
 <!-- FOOD TAB -->
 <div id="food" class="tab-pane">
   <p class="section-title"><span class="ko">추천 음식점</span><span class="ja">おすすめグルメ</span></p>
@@ -744,8 +1018,8 @@ body.lang-ja .ko { display: none; }
     <article class="card">
       <div class="carousel" data-index="0">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kalguksu_noodles.jpg?width=600" alt="칼국수" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍜</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korean_dumplings_(mandu).jpg?width=600" alt="만두" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🥟</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korean_cuisine-Kalguksu-01.jpg?width=600" alt="칼국수" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍜</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korean_cuisine-Mandu-01.jpg?width=600" alt="만두" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🥟</div>'"></div>
         </div>
         <div class="carousel-overlay"></div>
         <button class="carousel-btn prev">‹</button>
@@ -771,8 +1045,8 @@ body.lang-ja .ko { display: none; }
     <article class="card">
       <div class="carousel" data-index="0">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dakhanmari.jpg?width=600" alt="닭한마리" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍲</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korean_street_food.jpg?width=600" alt="골목" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌶️</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korean_cuisine-Samgyetang-01.jpg?width=600" alt="닭한마리" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍲</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korea-Seoul-Street_food-01.jpg?width=600" alt="골목" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌶️</div>'"></div>
         </div>
         <div class="carousel-overlay"></div>
         <button class="carousel-btn prev">‹</button>
@@ -798,8 +1072,8 @@ body.lang-ja .ko { display: none; }
     <article class="card">
       <div class="carousel" data-index="0">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ganjang_gejang.jpg?width=600" alt="게장" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🦀</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korean_food_banchan.jpg?width=600" alt="한식" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍱</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korean_cuisine-Ganjang_gejang-01.jpg?width=600" alt="게장" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🦀</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korean_cuisine-Bap-01.jpg?width=600" alt="한식" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍱</div>'"></div>
         </div>
         <div class="carousel-overlay"></div>
         <button class="carousel-btn prev">‹</button>
@@ -825,8 +1099,8 @@ body.lang-ja .ko { display: none; }
     <article class="card">
       <div class="carousel" data-index="0">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Beer_and_anju_Korea.jpg?width=600" alt="맥주" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍺</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Euljiro_alley_Seoul.jpg?width=600" alt="골목" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌃</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korean_cuisine-Chimaek-01.jpg?width=600" alt="맥주" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍺</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Namdaemun-ro_and_Aloft_Seoul_Myeongdong_by_night.jpg?width=600" alt="골목" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌃</div>'"></div>
         </div>
         <div class="carousel-overlay"></div>
         <button class="carousel-btn prev">‹</button>
@@ -852,7 +1126,7 @@ body.lang-ja .ko { display: none; }
     <article class="card">
       <div class="carousel" data-index="0">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tim_Hortons_coffee.jpg?width=600" alt="커피" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>☕</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tim_Hortons_-_Ottawa_(2010).jpg?width=600" alt="커피" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>☕</div>'"></div>
           <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Evening_street_in_Seongsu-dong.jpg?width=600" alt="카페" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🥐</div>'"></div>
         </div>
         <div class="carousel-overlay"></div>
@@ -879,8 +1153,8 @@ body.lang-ja .ko { display: none; }
     <article class="card">
       <div class="carousel" data-index="0">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korean_BBQ_restaurant.jpg?width=600" alt="홍대 음식" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍖</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hongdae_food_street.jpg?width=600" alt="홍대 거리" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌮</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korean_cuisine-Gui-01.jpg?width=600" alt="홍대 음식" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍖</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hongik_University_Gateway_from_Boulevard.jpg?width=600" alt="홍대 거리" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌮</div>'"></div>
         </div>
         <div class="carousel-overlay"></div>
         <button class="carousel-btn prev">‹</button>
@@ -907,7 +1181,7 @@ body.lang-ja .ko { display: none; }
       <div class="carousel" data-index="0">
         <div class="carousel-track">
           <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Flowery_cafe_in_Seongsu-dong.jpg?width=600" alt="성수 음식" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🥗</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Brunch_Seoul_cafe.jpg?width=600" alt="브런치" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍳</div>'"></div>
+          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Flowery_cafe_in_Seongsu-dong.jpg?width=600" alt="브런치" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍳</div>'"></div>
         </div>
         <div class="carousel-overlay"></div>
         <button class="carousel-btn prev">‹</button>
