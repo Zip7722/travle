@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>명동/충무로 여행 가이드</title>
+  <title>오사카·도톤보리 여행 가이드</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -20,1276 +20,2030 @@
       --radius: 18px;
     }
 
-```
-* { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-body {
-  font-family: 'Noto Sans KR', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-/* HEADER */
-.header {
-  padding: 52px 20px 24px;
-  position: relative;
-}
+    /* HEADER */
+    .header {
+      padding: 52px 20px 24px;
+      position: relative;
+    }
 
-.header::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 200px;
-  background: radial-gradient(ellipse at 60% 0%, rgba(232,201,126,0.12) 0%, transparent 70%);
-  pointer-events: none;
-}
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 200px;
+      background: radial-gradient(ellipse at 60% 0%, rgba(232,201,126,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
 
-.header-label {
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 8px;
-}
+    .header-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
 
-.header-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.1rem;
-  font-weight: 900;
-  line-height: 1.1;
-  color: var(--text);
-}
+    .header-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--text);
+    }
 
-.header-title span {
-  color: var(--accent);
-}
+    .header-title span {
+      color: var(--accent);
+    }
 
-.header-sub {
-  margin-top: 8px;
-  font-size: 0.88rem;
-  color: var(--muted);
-}
+    .header-sub {
+      margin-top: 8px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
 
-/* LANG SWITCH */
-.lang-row {
-  margin-top: 16px;
-  display: flex;
-  gap: 8px;
-}
+    /* TABS */
+    .tabs-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(14,14,14,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 20px;
+    }
 
-.lang-btn {
-  height: 34px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 700;
-  padding: 0 14px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
+    .tabs {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .tabs::-webkit-scrollbar { display: none; }
 
-.lang-btn.active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #1a1a1a;
-}
+    .tab-btn {
+      flex-shrink: 0;
+      height: 50px;
+      border: none;
+      background: none;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 0 18px;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
 
-/* TABS */
-.tabs-wrap {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(14,14,14,0.92);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
-  padding: 0 20px;
-}
+    .tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 18px; right: 18px;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+      border-radius: 2px;
+    }
 
-.tabs {
-  display: flex;
-  gap: 0;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.tabs::-webkit-scrollbar { display: none; }
+    .tab-btn.active {
+      color: var(--accent);
+    }
 
-.tab-btn {
-  flex-shrink: 0;
-  height: 50px;
-  border: none;
-  background: none;
-  color: var(--muted);
-  font-size: 0.88rem;
-  font-weight: 700;
-  padding: 0 18px;
-  cursor: pointer;
-  position: relative;
-  transition: color 0.2s;
-  font-family: 'Noto Sans KR', sans-serif;
-}
+    .tab-btn.active::after {
+      transform: scaleX(1);
+    }
 
-.tab-btn::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 18px; right: 18px;
-  height: 2px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transition: transform 0.2s;
-  border-radius: 2px;
-}
+    /* CONTENT */
+    .content {
+      padding: 20px 20px 60px;
+    }
 
-.tab-btn.active {
-  color: var(--accent);
-}
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
 
-.tab-btn.active::after {
-  transform: scaleX(1);
-}
+    /* SECTION TITLE */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
 
-/* CONTENT */
-.content {
-  padding: 20px 20px 60px;
-}
+    .section-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
 
-.tab-pane { display: none; }
-.tab-pane.active { display: block; }
+    /* CARD */
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+    }
 
-/* SECTION TITLE */
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
+    /* CAROUSEL */
+    .carousel {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: var(--surface2);
+    }
 
-.section-desc {
-  font-size: 0.82rem;
-  color: var(--muted);
-  margin-bottom: 20px;
-}
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
 
-/* CARD */
-.card {
-  background: var(--surface);
-  border-radius: var(--radius);
-  overflow: hidden;
-  margin-bottom: 16px;
-  border: 1px solid var(--border);
-}
+    .carousel-slide {
+      flex-shrink: 0;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
 
-/* CAROUSEL */
-.carousel {
-  position: relative;
-  height: 220px;
-  overflow: hidden;
-  background: var(--surface2);
-}
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-.carousel-track {
-  display: flex;
-  height: 100%;
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
+    .carousel-slide .img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, var(--surface2), #2a2a2a);
+    }
 
-.carousel-slide {
-  flex-shrink: 0;
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
+    .carousel-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 80px;
+      background: linear-gradient(to top, rgba(14,14,14,0.8), transparent);
+      pointer-events: none;
+    }
 
-.carousel-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+    .carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 5px;
+    }
 
-.carousel-slide .img-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;
-  background: linear-gradient(135deg, var(--surface2), #2a2a2a);
-}
+    .carousel-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
 
-.carousel-overlay {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 80px;
-  background: linear-gradient(to top, rgba(14,14,14,0.8), transparent);
-  pointer-events: none;
-}
+    .carousel-dot.active {
+      background: var(--accent);
+      width: 16px;
+      border-radius: 3px;
+    }
 
-.carousel-dots {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 5px;
-}
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(14,14,14,0.6);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+      z-index: 2;
+      transition: background 0.2s;
+    }
 
-.carousel-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.4);
-  transition: all 0.2s;
-  cursor: pointer;
-  border: none;
-}
+    .carousel-btn:hover { background: rgba(232,201,126,0.2); }
+    .carousel-btn.prev { left: 10px; }
+    .carousel-btn.next { right: 10px; }
 
-.carousel-dot.active {
-  background: var(--accent);
-  width: 16px;
-  border-radius: 3px;
-}
+    /* CARD BODY */
+    .card-body {
+      padding: 14px 14px 12px;
+    }
 
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(14,14,14,0.6);
-  border: 1px solid var(--border);
-  color: var(--text);
-  font-size: 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(8px);
-  z-index: 2;
-  transition: background 0.2s;
-}
+    .card-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
 
-.carousel-btn:hover { background: rgba(232,201,126,0.2); }
-.carousel-btn.prev { left: 10px; }
-.carousel-btn.next { right: 10px; }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
 
-/* CARD BODY */
-.card-body {
-  padding: 14px 14px 12px;
-}
+    .card-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
 
-.card-tag {
-  display: inline-block;
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 6px;
-  font-weight: 700;
-}
+    /* PASS BADGE */
+    .pass-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .pass-badge.free { background: rgba(200,232,176,0.15); color: var(--accent2); border: 1px solid rgba(200,232,176,0.3); }
+    .pass-badge.discount { background: rgba(232,201,126,0.15); color: var(--accent); border: 1px solid rgba(232,201,126,0.3); }
 
-.card-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.15rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 4px;
-}
+    /* MAP BUTTONS */
+    .map-btns {
+      display: flex;
+      gap: 6px;
+    }
 
-.card-meta {
-  font-size: 0.82rem;
-  color: var(--muted);
-  margin-bottom: 12px;
-  line-height: 1.4;
-}
+    .map-btn {
+      flex: 1;
+      height: 38px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--text);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: all 0.18s;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
 
-/* MAP BUTTONS */
-.map-btns {
-  display: flex;
-  gap: 6px;
-}
+    .map-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-.map-btn {
-  flex: 1;
-  height: 38px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--surface2);
-  color: var(--text);
-  font-size: 0.78rem;
-  font-weight: 700;
-  cursor: pointer;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  transition: all 0.18s;
-  font-family: 'Noto Sans KR', sans-serif;
-}
+    .map-btn.google { --c: #4285f4; }
+    .map-btn.apple { --c: #a0a0a0; }
+    .map-btn.tabelog { --c: #ff7f00; }
 
-.map-btn:hover { border-color: var(--accent); color: var(--accent); }
+    /* TABELOG INFO ROW */
+    .info-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin: 8px 0 10px;
+    }
+    .info-chip {
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+    .info-chip.rating {
+      background: rgba(255,127,0,0.10);
+      border-color: rgba(255,127,0,0.35);
+      color: #ffb060;
+    }
+    .info-chip.rating:hover { background: rgba(255,127,0,0.18); }
+    .info-chip.rating .star { color: #ffb060; }
+    .info-chip.price { color: var(--accent2); border-color: rgba(200,232,176,0.25); }
+    .info-chip.hours { color: var(--muted); }
+    .info-chip.badge100 {
+      background: rgba(232,201,126,0.18);
+      border-color: rgba(232,201,126,0.45);
+      color: var(--accent);
+    }
 
-.map-btn.naver { --c: #03c75a; }
-.map-btn.google { --c: #4285f4; }
-.map-btn.apple { --c: #a0a0a0; }
+    /* MAP IFRAME */
+    .map-frame {
+      width: 100%;
+      height: 160px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 4px 0 10px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      filter: invert(0.92) hue-rotate(180deg) saturate(0.7);
+    }
+    .map-frame .map-loading {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.78rem;
+      pointer-events: none;
+    }
 
-.map-btn .dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--c);
-  flex-shrink: 0;
-}
+    .map-btn .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--c);
+      flex-shrink: 0;
+    }
 
-/* CONVENIENCE GRID */
-.conv-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
+    /* PASS LIST */
+    .pass-info {
+      background: linear-gradient(135deg, rgba(232,201,126,0.08), rgba(200,232,176,0.04));
+      border: 1px solid rgba(232,201,126,0.25);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+    .pass-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .pass-info p {
+      font-size: 0.84rem;
+      color: var(--text);
+      line-height: 1.55;
+      margin-bottom: 6px;
+    }
+    .pass-info .price-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .pass-info .price-chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .pass-info .price-chip span.day { color: var(--accent); }
 
-.conv-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 14px 12px;
-}
+    .pass-list-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+    .pass-list-wrap h4 {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+    .pass-list-wrap .area-sub {
+      font-size: 0.74rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .pass-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+    .pass-list li {
+      font-size: 0.82rem;
+      padding: 8px 10px;
+      background: var(--surface2);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+    .pass-list li .cat {
+      font-size: 0.7rem;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+    .pass-list li .name {
+      flex: 1;
+    }
 
-.conv-icon {
-  font-size: 1.6rem;
-  margin-bottom: 8px;
-}
+    @media (min-width: 480px) {
+      .pass-list {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
 
-.conv-title {
-  font-size: 0.92rem;
-  font-weight: 700;
-  margin-bottom: 3px;
-}
+    /* SUBWAY MAP */
+    .subway-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+    .subway-card h4 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .subway-card .sub-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .subway-map-frame {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .subway-map-frame img {
+      width: 100%;
+      display: block;
+    }
+    .subway-lines {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .line-chip {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: #1a1a1a;
+    }
+    .line-M  { background: #e8443c; } /* 미도스지선 */
+    .line-T  { background: #84478b; } /* 타니마치선 */
+    .line-Y  { background: #b8a160; } /* 요츠바시선 */
+    .line-C  { background: #1d8a4f; } /* 츄오선 */
+    .line-S  { background: #d54f8d; } /* 센니치마에선 */
+    .line-K  { background: #84c1e9; color: #1a1a1a; } /* 사카이스지선 */
+    .line-N  { background: #4ec9e3; } /* 나가호리츠루미료쿠치선 */
+    .line-I  { background: #e3a155; } /* 이마자토스지선 */
+    .line-NT { background: #6b7eff; color: #fff; } /* 뉴트램 */
 
-.conv-sub {
-  font-size: 0.76rem;
-  color: var(--muted);
-  margin-bottom: 10px;
-}
+    /* TIP CARD */
+    .tip-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-bottom: 16px;
+    }
+    .tip-card h4 {
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+    .tip-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .tip-card ul li {
+      font-size: 0.82rem;
+      color: var(--text);
+      line-height: 1.6;
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 4px;
+    }
+    .tip-card ul li::before {
+      content: '·';
+      position: absolute;
+      left: 4px;
+      color: var(--accent);
+      font-weight: 900;
+    }
 
-.conv-btns {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
+    /* CONVENIENCE GRID */
+    .conv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
 
-.conv-btn {
-  height: 34px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: var(--surface2);
-  color: var(--muted);
-  font-size: 0.75rem;
-  font-weight: 700;
-  cursor: pointer;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.18s;
-  font-family: 'Noto Sans KR', sans-serif;
-}
+    .conv-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 12px;
+    }
 
-.conv-btn:hover { color: var(--accent); border-color: var(--accent); }
+    .conv-icon {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
 
-/* ko/ja toggle */
-body.lang-ko .ja { display: none; }
-body.lang-ja .ko { display: none; }
-.ko, .ja { display: inline; }
+    .conv-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
 
-@media (min-width: 600px) {
-  .cards-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  .cards-grid .card { margin-bottom: 0; }
-}
-```
+    .conv-sub {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .conv-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .conv-btn {
+      height: 34px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.18s;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .conv-btn:hover { color: var(--accent); border-color: var(--accent); }
+
+    @media (min-width: 600px) {
+      .cards-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .cards-grid .card { margin-bottom: 0; }
+    }
 
   </style>
 </head>
-<body class="lang-ja">
+<body>
 
   <div class="header">
-    <div class="header-label">Seoul Travel Guide</div>
+    <div class="header-label">Osaka Travel Guide</div>
     <h1 class="header-title">
-      <span class="ko">명동 <span style="color:var(--accent)">·</span> 충무로</span>
-      <span class="ja">明洞 <span style="color:var(--accent)">·</span> 忠武路</span>
+      오사카 <span style="color:var(--accent)">·</span> 도톤보리
     </h1>
     <p class="header-sub">
-      <span class="ko">서울 도심 여행 가이드</span>
-      <span class="ja">ソウル都心 旅行ガイド</span>
+      오사카 주유패스 + 도톤보리 여행 가이드
     </p>
-    <div class="lang-row">
-      <button class="lang-btn active" data-lang="ja">日本語</button>
-      <button class="lang-btn" data-lang="ko">한국어</button>
-    </div>
   </div>
 
   <div class="tabs-wrap">
     <nav class="tabs">
-      <button class="tab-btn active" data-tab="gangbuk">
-        <span class="ko">🗺 강북</span><span class="ja">🗺 江北</span>
+      <button class="tab-btn active" data-tab="dotonbori">
+        🍜 도톤보리·난바
       </button>
-      <button class="tab-btn" data-tab="gangnam">
-        <span class="ko">✨ 강남</span><span class="ja">✨ 江南</span>
+      <button class="tab-btn" data-tab="shinsekai">
+        🗼 신세카이·텐노지
       </button>
-      <button class="tab-btn" data-tab="hangang">
-        <span class="ko">🌊 한강</span><span class="ja">🌊 漢江</span>
+      <button class="tab-btn" data-tab="umeda">
+        🌃 우메다·기타
+      </button>
+      <button class="tab-btn" data-tab="castle">
+        🏯 오사카성·베이
       </button>
       <button class="tab-btn" data-tab="food">
-        <span class="ko">🍜 음식점</span><span class="ja">🍜 グルメ</span>
+        🍢 음식점
+      </button>
+      <button class="tab-btn" data-tab="pass">
+        🎫 주유패스·교통
       </button>
       <button class="tab-btn" data-tab="convenience">
-        <span class="ko">🏪 편의시설</span><span class="ja">🏪 便利施設</span>
+        🏪 편의시설
       </button>
     </nav>
   </div>
 
   <div class="content">
 
-```
-<!-- 강북 TAB -->
-<div id="gangbuk" class="tab-pane active">
-  <p class="section-title"><span class="ko">강북 핵심 스팟</span><span class="ja">江北エリア スポット</span></p>
-  <p class="section-desc"><span class="ko">명동 · 종로 · 홍대 · 성수 지역</span><span class="ja">明洞・鍾路・弘大・聖水エリア</span></p>
-  <div class="cards-grid">
+    <!-- 도톤보리·난바 TAB -->
+    <div id="dotonbori" class="tab-pane active">
+      <p class="section-title">도톤보리·난바 핵심 스팟</p>
+      <p class="section-desc">오사카 여행의 중심 · 글리코 사인부터 신사이바시까지</p>
+      <div class="cards-grid">
 
-    <!-- 명동 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Myeong-dong_(22139460844).jpg?width=600" alt="명동" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏙️</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/명동8길_거리_(2020.03).jpg?width=600" alt="명동2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🛍️</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Myeongdong_at_night_02.JPG?width=600" alt="명동3" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌃</div>'"></div>
-        </div>
-        <div class="carousel-overlay"></div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-        <div class="carousel-dots">
-          <button class="carousel-dot active"></button>
-          <button class="carousel-dot"></button>
-          <button class="carousel-dot"></button>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag"><span class="ko">쇼핑 · 야간</span><span class="ja">ショッピング・夜</span></span>
-        <h3 class="card-title">명동 / 明洞</h3>
-        <p class="card-meta"><span class="ko">쇼핑, 길거리 음식, 야간 산책</span><span class="ja">ショッピング、屋台フード、夜散歩</span></p>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/%EB%AA%85%EB%8F%99" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Myeongdong" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Myeongdong" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
+        <!-- 도톤보리 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://media.istockphoto.com/id/1219562268/photo/the-glico-running-man-neon-sign-at-dotonbori-canal-ins-osaka-japan.jpg?s=1024x1024&w=is&k=20&c=xk6SNNRx0FTVg9o1v4Rnx52w48_ByBa2GhEEOv5BzT8=" alt="도톤보리" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌃</div>'"></div>
+              <div class="carousel-slide"><img src="https://c8.alamy.com/comp/3BKTA5D/the-famous-glico-running-man-neon-sign-in-dotonbori-osaka-at-night-dotonbori-is-one-of-the-principal-tourist-destinations-in-osaka-japan-3BKTA5D.jpg" alt="글리코" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏃</div>'"></div>
+              <div class="carousel-slide"><img src="https://c8.alamy.com/comp/R393K5/osaka-japan-november-21-2018-night-view-of-dotonbori-a-principal-tourist-destinations-in-osaka-along-the-dotonbori-canal-from-dotonboribashi-bri-R393K5.jpg" alt="운하" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌉</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">먹거리·야경·간판</span>
+            <h3 class="card-title">도톤보리 / 道頓堀</h3>
+            <p class="card-meta">글리코 사인, 카니도라쿠 게, 쿠이다오레 인형 등 오사카의 상징</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Dotonbori+Osaka" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Dotonbori+Osaka" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
 
-    <!-- N서울타워 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Namsan_Tower_(6907570553).jpg?width=600" alt="N서울타워" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🗼</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seongsu_Bridge_and_N_Seoul_Tower.jpg?width=600" alt="N서울타워2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌆</div>'"></div>
-        </div>
-        <div class="carousel-overlay"></div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-        <div class="carousel-dots">
-          <button class="carousel-dot active"></button>
-          <button class="carousel-dot"></button>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag"><span class="ko">야경 명소</span><span class="ja">夜景スポット</span></span>
-        <h3 class="card-title">N서울타워 / Nソウルタワー</h3>
-        <p class="card-meta"><span class="ko">서울 야경 대표 스팟</span><span class="ja">ソウル夜景の定番</span></p>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/N%EC%84%9C%EC%9A%B8%ED%83%80%EC%9B%8C" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=N+Seoul+Tower" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=N+Seoul+Tower" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
+        <!-- 돈보리 리버 크루즈 (주유패스 무료) -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://cdn-imgix.headout.com/media/images/3e0fa8a6f3cf2c528b3059a543568e58-U7FY0-f1d962eb-ffd3-49be-96ff-ce93f0c0fbcf.jpeg" alt="돈보리크루즈" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🚤</div>'"></div>
+              <div class="carousel-slide"><img src="https://cdn.osaka-info.jp/page_translation/content/a8707a3e-22c5-11ea-bf4d-06326e701dd4.jpeg" alt="크루즈2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🛶</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">크루즈</span>
+            <h3 class="card-title">돈보리 리버 크루즈 / とんぼりリバークルーズ <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">도톤보리 운하를 20분간 운행 · 가이드가 안내</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Tombori+River+Cruise+Osaka" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Tombori+River+Cruise" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
 
-    <!-- DDP -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/DongDaemun_Design_Plaza_(동대문디자인플라자_(DDP)),_Seoul,_South_Korea_(Unsplash_aNSniQXO424).jpg?width=600" alt="DDP" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏛️</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dongdaemun_Design_Plaza_at_night,_Seoul,_Korea.jpg?width=600" alt="DDP2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>✨</div>'"></div>
-        </div>
-        <div class="carousel-overlay"></div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-        <div class="carousel-dots">
-          <button class="carousel-dot active"></button>
-          <button class="carousel-dot"></button>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag"><span class="ko">건축 · 전시</span><span class="ja">建築・展示</span></span>
-        <h3 class="card-title">DDP</h3>
-        <p class="card-meta"><span class="ko">전시/건축 포토 스팟</span><span class="ja">展示と建築フォトスポット</span></p>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/DDP" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Dongdaemun+Design+Plaza" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Dongdaemun+Design+Plaza" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
+        <!-- 돈키호테 도톤보리 관람차 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://thumbs.dreamstime.com/b/don-quijote-dotombori-ferris-wheel-ebisu-tower-shinsaibashi-shopping-street-near-namba-osaka-landmark-popular-171139307.jpg" alt="돈키호테" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎡</div>'"></div>
+              <div class="carousel-slide"><img src="https://thumbs.dreamstime.com/b/yellow-ferris-wheel-don-quijote-popular-store-dotonbori-canal-night-osaka-japan-october-bright-illumination-huge-174259855.jpg" alt="관람차" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎢</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">관람차</span>
+            <h3 class="card-title">에비스 타워 관람차 / えびすタワー <span class="pass-badge discount">PASS 100엔↓</span></h3>
+            <p class="card-meta">돈키호테 도톤보리점 옥상의 타원형 관람차</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Don+Quijote+Dotonbori+Ferris+Wheel" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Don+Quijote+Dotonbori" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
 
-    <!-- 청계천 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cheonggyecheon_evening_1.jpg?width=600" alt="청계천" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌊</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cheonggyecheon_Seoul_3.jpg?width=600" alt="청계천2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌙</div>'"></div>
-        </div>
-        <div class="carousel-overlay"></div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-        <div class="carousel-dots">
-          <button class="carousel-dot active"></button>
-          <button class="carousel-dot"></button>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag"><span class="ko">도심 산책</span><span class="ja">都心散歩</span></span>
-        <h3 class="card-title">청계천 / 清渓川</h3>
-        <p class="card-meta"><span class="ko">도심 속 힐링 산책 코스</span><span class="ja">都心の癒し散歩コース</span></p>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/%EC%B2%AD%EA%B3%84%EC%B2%9C" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Cheonggyecheon" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Cheonggyecheon" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
+        <!-- 신사이바시스지 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://assets-global.website-files.com/63b68194bb4b0152e60727ee/63d23bb9d93441cacbb1f386_14072262993_4a8a27cbbf_k-1024x683.jpeg" alt="신사이바시" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🛍️</div>'"></div>
+              <div class="carousel-slide"><img src="https://c8.alamy.com/comp/WM7RM0/shinsaibashi-suji-shopping-street-at-night-osaka-japan-WM7RM0.jpg" alt="쇼핑가" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🛒</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">쇼핑·아케이드</span>
+            <h3 class="card-title">신사이바시스지 / 心斎橋筋商店街</h3>
+            <p class="card-meta">580m 길이 아케이드 쇼핑 거리, 도톤보리와 연결</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Shinsaibashi-suji+Shopping+Street" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Shinsaibashi-suji" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
 
-    <!-- 남산골한옥마을 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korea-Seoul-Namsangol-07.jpg?width=600" alt="한옥마을" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏯</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korea-Seoul-Namsangol_Hanok_Village-03.jpg?width=600" alt="한옥마을2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎋</div>'"></div>
-        </div>
-        <div class="carousel-overlay"></div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-        <div class="carousel-dots">
-          <button class="carousel-dot active"></button>
-          <button class="carousel-dot"></button>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag"><span class="ko">전통 문화</span><span class="ja">伝統文化</span></span>
-        <h3 class="card-title">남산골한옥마을 / 南山韓屋村</h3>
-        <p class="card-meta">서울 중구 퇴계로34길 28</p>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/%EB%82%A8%EC%82%B0%EA%B3%A8%ED%95%9C%EC%98%A5%EB%A7%88%EC%9D%84" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Namsangol+Hanok+Village" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Namsangol+Hanok+Village" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
+        <!-- 쿠로몬 시장 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://c8.alamy.com/comp/WTDG1E/kuromon-ichiba-market-osaka-japan-WTDG1E.jpg" alt="쿠로몬" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🦐</div>'"></div>
+              <div class="carousel-slide"><img src="https://res-1.cloudinary.com/jnto/image/upload/w_2064,h_1300,c_fill,f_auto,fl_lossy,q_auto/v1514373131/osaka/Osaka803_2" alt="시장" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🐟</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">시장·먹거리</span>
+            <h3 class="card-title">쿠로몬 시장 / 黒門市場</h3>
+            <p class="card-meta">"오사카의 부엌". 신선한 해산물, 와규, 과일 시식</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Kuromon+Ichiba+Market" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Kuromon+Ichiba+Market" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
 
-    <!-- 경복궁 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gyeongbokgung_2017_September.jpg?width=600" alt="경복궁" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏰</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gyeongbokgung_at_blue_hour_1X7A8069.jpg?width=600" alt="경복궁2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌸</div>'"></div>
-        </div>
-        <div class="carousel-overlay"></div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-        <div class="carousel-dots">
-          <button class="carousel-dot active"></button>
-          <button class="carousel-dot"></button>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag"><span class="ko">궁궐 · 역사</span><span class="ja">宮殿・歴史</span></span>
-        <h3 class="card-title">경복궁 / 景福宮</h3>
-        <p class="card-meta">서울 종로구 사직로 161</p>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/%EA%B2%BD%EB%B3%B5%EA%B6%81" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Gyeongbokgung+Palace" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Gyeongbokgung+Palace" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
+        <!-- 가미가타 우키요에관 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://cdn.prod.website-files.com/658352c9dc46a8af3404d0e2/66bba391d3c00b7a83eb55f3_66bba20cfa6723a86910b1e1_Kamigata%2520Ukiyoe%2520Museum.webp" alt="우키요에관" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎨</div>'"></div>
+              <div class="carousel-slide"><img src="https://art-flavor.osaka-info.jp/wp-content/uploads/kamigata-ukiyoe-museum-1-1-scaled.jpg" alt="우키요에" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🖼️</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">박물관</span>
+            <h3 class="card-title">가미가타 우키요에관 / 上方浮世絵館 <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">호젠지 요코초 인근 · 에도시대 오사카 우키요에 상설 전시</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Kamigata+Ukiyoe+Museum" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Kamigata+Ukiyoe+Museum" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
 
-    <!-- 북촌한옥마을 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korea-Seoul-Bukchon_Hanok_Village-01.jpg?width=600" alt="북촌" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏘️</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korea-Seoul-Bukchon_Hanok_Village-02.jpg?width=600" alt="북촌2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌿</div>'"></div>
-        </div>
-        <div class="carousel-overlay"></div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-        <div class="carousel-dots">
-          <button class="carousel-dot active"></button>
-          <button class="carousel-dot"></button>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag"><span class="ko">한옥 마을</span><span class="ja">韓屋村</span></span>
-        <h3 class="card-title">북촌한옥마을 / 北村韓屋村</h3>
-        <p class="card-meta">서울 종로구 계동길 37 일대</p>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/%EB%B6%81%EC%B4%8C%ED%95%9C%EC%98%A5%EB%A7%88%EC%9D%84" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Bukchon+Hanok+Village" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Bukchon+Hanok+Village" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
+        <!-- 호젠지 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://japonismo.com/wp-content/uploads/2023/09/templo-hozenji-yokocho-osaka-1024x439.jpg" alt="호젠지" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🛕</div>'"></div>
+              <div class="carousel-slide"><img src="https://thumbs.dreamstime.com/z/hozenji-yokocho-narrow-stone-paved-lane-osaka-city-japan-hozenji-yokocho-lanterns-osaka-city-238702129.jpg" alt="요코초" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏮</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">사찰·골목</span>
+            <h3 class="card-title">호젠지 요코초 / 法善寺横丁</h3>
+            <p class="card-meta">이끼 낀 부동존(미즈카케 후도)으로 유명한 노스탤지어 골목</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Hozenji+Yokocho" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Hozenji+Yokocho" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
 
-    <!-- 명동성당 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seoul-Myeongdong-Catholic.Church-01.jpg?width=600" alt="명동성당" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>⛪</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seoul-Myeongdong-Catholic.Church-01.jpg?width=600" alt="명동성당2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌟</div>'"></div>
-        </div>
-        <div class="carousel-overlay"></div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-        <div class="carousel-dots">
-          <button class="carousel-dot active"></button>
-          <button class="carousel-dot"></button>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag"><span class="ko">성당 · 건축</span><span class="ja">聖堂・建築</span></span>
-        <h3 class="card-title">명동성당 / 明洞聖堂</h3>
-        <p class="card-meta">서울 중구 명동길 74</p>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/%EB%AA%85%EB%8F%99%EC%84%B1%EB%8B%B9" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Myeongdong+Cathedral" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Myeongdong+Cathedral" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
+        <!-- 난바 야사카신사 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://c8.alamy.com/comp/2WEDT46/namba-yasaka-jinja-shrine-famous-its-enormous-lion-head-shaped-building-in-osaka-japan-2WEDT46.jpg" alt="야사카" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🦁</div>'"></div>
+              <div class="carousel-slide"><img src="https://thumbs.dreamstime.com/z/lion-s-head-yasaka-namba-temple-osaka-yasaka-namba-temple-famous-his-big-lion-head-temple-some-people-think-s-160329818.jpg" alt="신사" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>⛩️</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">신사·인스타</span>
+            <h3 class="card-title">난바 야사카신사 / 難波八阪神社</h3>
+            <p class="card-meta">12m 높이의 거대 사자머리 무대로 유명한 포토 스팟</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Namba+Yasaka+Shrine" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Namba+Yasaka+Shrine" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
 
-    <!-- 홍대 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hongik_University_Gate.jpg?width=600" alt="홍대" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎵</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hongik_univ_gallery_in_the_street.jpg?width=600" alt="홍대2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎨</div>'"></div>
-        </div>
-        <div class="carousel-overlay"></div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-        <div class="carousel-dots">
-          <button class="carousel-dot active"></button>
-          <button class="carousel-dot"></button>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag"><span class="ko">스트리트 · 클럽</span><span class="ja">ストリート・クラブ</span></span>
-        <h3 class="card-title">홍대거리 / 弘大エリア</h3>
-        <p class="card-meta"><span class="ko">스트리트 공연, 쇼핑, 밤거리 분위기</span><span class="ja">ストリート公演、ショッピング、夜の雰囲気</span></p>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/%ED%99%8D%EB%8C%80%EA%B1%B0%EB%A6%AC" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Hongdae+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Hongdae+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
+        <!-- 덴덴타운 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://c8.alamy.com/comp/A1N4D1/the-neon-lights-and-signs-of-den-den-town-nipponbashi-electronics-A1N4D1.jpg" alt="덴덴타운" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎮</div>'"></div>
+              <div class="carousel-slide"><img src="https://www.japannakama.co.uk/wp-content/uploads/2026/02/Electronic-Store.webp" alt="닛폰바시" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>📺</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">전자상가·오타쿠</span>
+            <h3 class="card-title">덴덴타운 / 日本橋でんでんタウン</h3>
+            <p class="card-meta">오사카의 아키하바라 · 애니, 게임, 피규어 전문 거리</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Den+Den+Town+Osaka" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Den+Den+Town+Osaka" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
 
-    <!-- 성수동 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cafe_storefront_in_Seongsu-dong.jpg?width=600" alt="성수동" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>☕</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Evening_street_in_Seongsu-dong.jpg?width=600" alt="성수동2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏭</div>'"></div>
-        </div>
-        <div class="carousel-overlay"></div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-        <div class="carousel-dots">
-          <button class="carousel-dot active"></button>
-          <button class="carousel-dot"></button>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag"><span class="ko">카페 · 팝업</span><span class="ja">カフェ・ポップアップ</span></span>
-        <h3 class="card-title">성수동 / 聖水洞</h3>
-        <p class="card-meta"><span class="ko">카페, 편집숍, 팝업 스토어 거리</span><span class="ja">カフェ、セレクトショップ、ポップアップ</span></p>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/%EC%84%B1%EC%88%98%EB%8F%99" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Seongsu-dong+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Seongsu-dong+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
+        <!-- 아메리카무라 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://japanwelcomesyou.com/wp-content/uploads/Amerikamura-Osaka2.jpg" alt="아메리카무라" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🇺🇸</div>'"></div>
+              <div class="carousel-slide"><img src="https://www.happyjappy.com/wp-content/uploads/osaka-Amerika-Mura.jpg" alt="아메무라" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎨</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">스트리트·빈티지</span>
+            <h3 class="card-title">아메리카무라 / アメリカ村</h3>
+            <p class="card-meta">오사카의 하라주쿠. 빈티지 숍, 그래피티, 삼각공원</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Amerikamura+Osaka" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Amerikamura" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
 
-  </div>
-</div>
-
-<!-- 강남 TAB -->
-<div id="gangnam" class="tab-pane">
-  <p class="section-title"><span class="ko">강남 핵심 스팟</span><span class="ja">江南エリア スポット</span></p>
-  <p class="section-desc"><span class="ko">가로수길 · COEX · 압구정 · 잠실</span><span class="ja">カロスキル・COEX・狎鴎亭・蚕室エリア</span></p>
-  <div class="cards-grid">
-
-    <!-- 가로수길 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Garosu-gil_Seoul.jpg?width=600" alt="가로수길" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌳</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sinsa_station_exit_8.jpg?width=600" alt="가로수길2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>☕</div>'"></div>
-        </div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-      </div>
-      <div class="card-body">
-        <div class="card-name"><span class="ko">가로수길</span><span class="ja">カロスキル</span></div>
-        <div class="card-tag"><span class="ko">트렌디 · 쇼핑 · 카페</span><span class="ja">トレンド・ショッピング・カフェ</span></div>
-        <div class="card-desc">
-          <span class="ko">은행나무 가득한 감성 거리. 편집숍, 카페, 애플스토어까지. 골목 안쪽 세로수길도 꼭 들려야 함.</span>
-          <span class="ja">イチョウ並木の感性あふれる通り。セレクトショップ、カフェ、Apple Storeも。路地裏のセロスキルも必見。</span>
-        </div>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/가로수길" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Garosu-gil+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Garosu-gil+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- COEX 별마당 도서관 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Starfield_Library_COEX_Seoul.jpg?width=600" alt="별마당" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>📚</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/DongDaemun_Design_Plaza_(동대문디자인플라자_(DDP)),_Seoul,_South_Korea_(Unsplash_aNSniQXO424).jpg?width=600" alt="코엑스" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🛍️</div>'"></div>
-        </div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-      </div>
-      <div class="card-body">
-        <div class="card-name"><span class="ko">COEX 별마당 도서관</span><span class="ja">COEX 星のまど図書館</span></div>
-        <div class="card-tag"><span class="ko">쇼핑몰 · 인스타 명소</span><span class="ja">ショッピングモール・インスタ映え</span></div>
-        <div class="card-desc">
-          <span class="ko">13m 높이 책장이 압도적인 아시아 최대 지하 쇼핑몰. 입장 무료. 깡남스타일 동상도 근처에 있음.</span>
-          <span class="ja">13mの本棚が圧巻のアジア最大の地下ショッピングモール。入場無料。カンナムスタイル像も近くにあり。</span>
-        </div>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/COEX+별마당도서관" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Starfield+Library+COEX+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=COEX+Mall+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 봉은사 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Q17278985_Bongeunsa_A02.jpg?width=600" alt="봉은사" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🛕</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korea-Seoul-Bongeunsa-01.jpg?width=600" alt="봉은사2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌿</div>'"></div>
-        </div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-      </div>
-      <div class="card-body">
-        <div class="card-name"><span class="ko">봉은사</span><span class="ja">奉恩寺</span></div>
-        <div class="card-tag"><span class="ko">사찰 · 힐링 · 역사</span><span class="ja">仏教寺院・癒し・歴史</span></div>
-        <div class="card-desc">
-          <span class="ko">1200년 역사의 도심 속 사찰. COEX 바로 옆인데 완전히 다른 세계. 28m 미륵불상이 인상적.</span>
-          <span class="ja">1200年の歴史を持つ都心の寺院。COEXのすぐ隣なのに別世界。28mの弥勒仏が印象的。</span>
-        </div>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/봉은사" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Bongeunsa+Temple+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Bongeunsa+Temple+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 압구정 로데오 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Apgujeong_Rodeo_Street_Seoul.jpg?width=600" alt="압구정" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>💅</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Galleria_Department_Store_Seoul.jpg?width=600" alt="갤러리아" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🛍️</div>'"></div>
-        </div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-      </div>
-      <div class="card-body">
-        <div class="card-name"><span class="ko">압구정 로데오</span><span class="ja">狎鴎亭ロデオ</span></div>
-        <div class="card-tag"><span class="ko">명품 · 뷰티 · 연예인</span><span class="ja">高級ブランド・ビューティー・芸能人</span></div>
-        <div class="card-desc">
-          <span class="ko">서울의 비버리힐스. 갤러리아 백화점, 하우스 도산, K-스타로드. 아이돌 픽업 스팟으로도 유명.</span>
-          <span class="ja">ソウルのビバリーヒルズ。ガレリア百貨店、ハウスドサン、K-STARロード。アイドルスポットとしても有名。</span>
-        </div>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/압구정로데오" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Apgujeong+Rodeo+Street+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Apgujeong+Rodeo+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 잠실 롯데월드 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lotte_World_day_view_7.jpg?width=600" alt="롯데월드" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎡</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lotte_World_morning_view_5.jpg?width=600" alt="롯데타워" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏙️</div>'"></div>
-        </div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-      </div>
-      <div class="card-body">
-        <div class="card-name"><span class="ko">잠실 롯데월드</span><span class="ja">蚕室 ロッテワールド</span></div>
-        <div class="card-tag"><span class="ko">테마파크 · 쇼핑 · 전망대</span><span class="ja">テーマパーク・ショッピング・展望台</span></div>
-        <div class="card-desc">
-          <span class="ko">세계 최대 실내 테마파크와 123층 롯데타워. 서울스카이 전망대에서 서울 전경 한눈에.</span>
-          <span class="ja">世界最大の室内テーマパークと123階建てロッテタワー。ソウルスカイ展望台からソウル全景を一望。</span>
-        </div>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/롯데월드+잠실" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Lotte+World+Seoul+Jamsil" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Lotte+World+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 선릉 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seonjeongneung_Seoul.jpg?width=600" alt="선릉" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌲</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seoul_Gangnam_green_park.jpg?width=600" alt="선릉2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌿</div>'"></div>
-        </div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-      </div>
-      <div class="card-body">
-        <div class="card-name"><span class="ko">선릉 · 정릉</span><span class="ja">宣陵・靖陵</span></div>
-        <div class="card-tag"><span class="ko">왕릉 · 산책 · 유네스코</span><span class="ja">王陵・散策・ユネスコ</span></div>
-        <div class="card-desc">
-          <span class="ko">빌딩 숲 강남 한복판의 조선 왕릉. 세계문화유산. 초록빛 잔디밭 산책이 힐링 그 자체.</span>
-          <span class="ja">ビル群の江南の中にある朝鮮王陵。世界文化遺産。緑の芝生の散策がとても癒される。</span>
-        </div>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/선릉정릉" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Seonjeongneung+Royal+Tombs+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Seonjeongneung+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</div>
-
-<!-- 한강 TAB -->
-<div id="hangang" class="tab-pane">
-  <p class="section-title"><span class="ko">한강 즐기기</span><span class="ja">漢江を楽しむ</span></p>
-  <p class="section-desc"><span class="ko">피크닉 · 야경 · 액티비티</span><span class="ja">ピクニック・夜景・アクティビティ</span></p>
-  <div class="cards-grid">
-
-    <!-- 뚝섬한강공원 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ttukseom_Hangang_Park_Seoul.jpg?width=600" alt="뚝섬" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌸</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seoul_Forest_seen_from_Dongho_Bridge.jpg?width=600" alt="한강" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌊</div>'"></div>
-        </div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-      </div>
-      <div class="card-body">
-        <div class="card-name"><span class="ko">뚝섬한강공원</span><span class="ja">トゥクソム漢江公園</span></div>
-        <div class="card-tag"><span class="ko">피크닉 · 자전거 · 수영장</span><span class="ja">ピクニック・自転車・プール</span></div>
-        <div class="card-desc">
-          <span class="ko">한강 피크닉의 성지. 편의점 치킨+맥주 세트로 돗자리 펼치는 문화가 유명. 여름엔 수영장도 오픈.</span>
-          <span class="ja">漢江ピクニックの聖地。コンビニチキン＋ビールでレジャーシートを広げる文化が有名。夏はプールもオープン。</span>
-        </div>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/뚝섬한강공원" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Ttukseom+Han+River+Park+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Ttukseom+Han+River+Park" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 반포한강공원 / 달빛무지개분수 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Banpo_Bridge_Rainbow_Fountain_Seoul.jpg?width=600" alt="반포분수" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌈</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Namsan_and_Han_River_2022.jpg?width=600" alt="한강야경" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌃</div>'"></div>
-        </div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-      </div>
-      <div class="card-body">
-        <div class="card-name"><span class="ko">반포 달빛무지개분수</span><span class="ja">盤浦 虹色噴水</span></div>
-        <div class="card-tag"><span class="ko">야경 · 분수쇼 · 인스타</span><span class="ja">夜景・噴水ショー・インスタ映え</span></div>
-        <div class="card-desc">
-          <span class="ko">기네스북 등재 세계 최장 교량 분수. 밤마다 음악과 함께 빛의 쇼. 반포공원에서 피크닉하며 관람 추천.</span>
-          <span class="ja">ギネス認定 世界最長の橋噴水。毎夜音楽に合わせた光のショー。盤浦公園でピクニックしながら観覧がおすすめ。</span>
-        </div>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/반포한강공원+달빛무지개분수" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Banpo+Bridge+Rainbow+Fountain+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Banpo+Bridge+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 여의도한강공원 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yeouido_Night_View_2010.jpg?width=600" alt="여의도" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌙</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yeouido_view_20240528.jpg?width=600" alt="여의도2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌸</div>'"></div>
-        </div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-      </div>
-      <div class="card-body">
-        <div class="card-name"><span class="ko">여의도한강공원</span><span class="ja">汝矣島漢江公園</span></div>
-        <div class="card-tag"><span class="ko">벚꽃 · 야경 · 피크닉</span><span class="ja">桜・夜景・ピクニック</span></div>
-        <div class="card-desc">
-          <span class="ko">봄 벚꽃 시즌엔 서울 최고 명소. 한강 야경 보며 피크닉. 세빛섬, 63빌딩도 근처.</span>
-          <span class="ja">春の桜シーズンはソウル最高のスポット。漢江の夜景を見ながらピクニック。セビッ島、63ビルも近く。</span>
-        </div>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/여의도한강공원" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Yeouido+Han+River+Park+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Yeouido+Han+River+Park" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 서울숲 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seoul_Forest_seen_from_Dongho_Bridge.jpg?width=600" alt="서울숲" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🦌</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seongsu_Bridge_and_N_Seoul_Tower.jpg?width=600" alt="서울숲2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌿</div>'"></div>
-        </div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-      </div>
-      <div class="card-body">
-        <div class="card-name"><span class="ko">서울숲</span><span class="ja">ソウルの森</span></div>
-        <div class="card-tag"><span class="ko">공원 · 사슴 · 성수동 인접</span><span class="ja">公園・鹿・聖水洞隣接</span></div>
-        <div class="card-desc">
-          <span class="ko">한강변 대형 공원. 귀여운 꽃사슴도 볼 수 있음. 성수동과 붙어있어 함께 코스로 묶으면 최고.</span>
-          <span class="ja">漢江沿いの大型公園。かわいいホンシュウジカも見られる。聖水洞と隣接していて一緒のコースにするのが◎。</span>
-        </div>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/서울숲" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Seoul+Forest+Park" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Seoul+Forest+Park" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</div>
-
-<!-- FOOD TAB -->
-<div id="food" class="tab-pane">
-  <p class="section-title"><span class="ko">추천 음식점</span><span class="ja">おすすめグルメ</span></p>
-  <p class="section-desc"><span class="ko">현지 맛집 · 분위기 맛집</span><span class="ja">ローカルグルメ</span></p>
-  <div class="cards-grid">
-
-    <!-- 명동교자 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korean_cuisine-Kalguksu-01.jpg?width=600" alt="칼국수" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍜</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korean_cuisine-Mandu-01.jpg?width=600" alt="만두" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🥟</div>'"></div>
-        </div>
-        <div class="carousel-overlay"></div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-        <div class="carousel-dots">
-          <button class="carousel-dot active"></button>
-          <button class="carousel-dot"></button>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag"><span class="ko">칼국수 · 만두</span><span class="ja">カルグクス・餃子</span></span>
-        <h3 class="card-title">명동교자 / 明洞餃子</h3>
-        <p class="card-meta">서울 중구 명동10길 29</p>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/%EB%AA%85%EB%8F%99%EA%B5%90%EC%9E%90" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Myeongdong+Kyoja" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Myeongdong+Kyoja" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 닭한마리 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korean_cuisine-Samgyetang-01.jpg?width=600" alt="닭한마리" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍲</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korea-Seoul-Street_food-01.jpg?width=600" alt="골목" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌶️</div>'"></div>
-        </div>
-        <div class="carousel-overlay"></div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-        <div class="carousel-dots">
-          <button class="carousel-dot active"></button>
-          <button class="carousel-dot"></button>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag"><span class="ko">닭한마리</span><span class="ja">タッカンマリ</span></span>
-        <h3 class="card-title">동대문 닭한마리 골목</h3>
-        <p class="card-meta">서울 종로구 종로40가길 일대</p>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/%EB%8F%99%EB%8C%80%EB%AC%B8+%EB%8B%AD%ED%95%9C%EB%A7%88%EB%A6%AC" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Dakhanmari+Alley+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Dakhanmari+Alley+Seoul" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 진미식당 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korean_cuisine-Ganjang_gejang-01.jpg?width=600" alt="게장" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🦀</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korean_cuisine-Bap-01.jpg?width=600" alt="한식" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍱</div>'"></div>
-        </div>
-        <div class="carousel-overlay"></div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-        <div class="carousel-dots">
-          <button class="carousel-dot active"></button>
-          <button class="carousel-dot"></button>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag"><span class="ko">간장게장</span><span class="ja">カンジャンケジャン</span></span>
-        <h3 class="card-title">진미식당 / ジンミ食堂</h3>
-        <p class="card-meta">서울 마포구 마포대로 186-6</p>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/%EC%A7%84%EB%AF%B8%EC%8B%9D%EB%8B%B9+%EB%A7%88%ED%8F%AC" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Jinmi+Sikdang+Mapo" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Jinmi+Sikdang+Mapo" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 을지로 노가리골목 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korean_cuisine-Chimaek-01.jpg?width=600" alt="맥주" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍺</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Namdaemun-ro_and_Aloft_Seoul_Myeongdong_by_night.jpg?width=600" alt="골목" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌃</div>'"></div>
-        </div>
-        <div class="carousel-overlay"></div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-        <div class="carousel-dots">
-          <button class="carousel-dot active"></button>
-          <button class="carousel-dot"></button>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag"><span class="ko">맥주 · 안주</span><span class="ja">ビール・つまみ</span></span>
-        <h3 class="card-title">을지로 노가리골목</h3>
-        <p class="card-meta"><span class="ko">레트로 분위기 맥주 골목</span><span class="ja">レトロなビール横丁</span></p>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/%EC%9D%84%EC%A7%80%EB%A1%9C+%EB%85%B8%EA%B0%80%EB%A6%AC%EA%B3%A8%EB%AA%A9" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Euljiro+Nogari+Alley" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Euljiro+Nogari+Alley" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- Tim Hortons -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tim_Hortons_-_Ottawa_(2010).jpg?width=600" alt="커피" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>☕</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Evening_street_in_Seongsu-dong.jpg?width=600" alt="카페" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🥐</div>'"></div>
-        </div>
-        <div class="carousel-overlay"></div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-        <div class="carousel-dots">
-          <button class="carousel-dot active"></button>
-          <button class="carousel-dot"></button>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag"><span class="ko">카페 · 베이커리</span><span class="ja">カフェ・ベーカリー</span></span>
-        <h3 class="card-title">Tim Hortons / ティムホートンズ</h3>
-        <p class="card-meta"><span class="ko">매장 위치 지도에서 최종 확인</span><span class="ja">店舗は地図で最終確認</span></p>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/%ED%8C%80%ED%99%80%ED%8A%BC+%EB%AA%85%EB%8F%99" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Tim+Hortons+Myeongdong" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Tim+Hortons+Myeongdong" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 홍대 음식점 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Korean_cuisine-Gui-01.jpg?width=600" alt="홍대 음식" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍖</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hongik_University_Gateway_from_Boulevard.jpg?width=600" alt="홍대 거리" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌮</div>'"></div>
-        </div>
-        <div class="carousel-overlay"></div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-        <div class="carousel-dots">
-          <button class="carousel-dot active"></button>
-          <button class="carousel-dot"></button>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag"><span class="ko">홍대 맛집</span><span class="ja">弘大グルメ</span></span>
-        <h3 class="card-title">홍대 음식점 / 弘大グルメ</h3>
-        <p class="card-meta"><span class="ko">홍대입구역~연남동 맛집 밀집</span><span class="ja">弘大入口〜延南洞グルメ密集</span></p>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/%ED%99%8D%EB%8C%80+%EB%A7%9B%EC%A7%91" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Hongdae+restaurants" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Hongdae+restaurants" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 성수동 음식점 -->
-    <article class="card">
-      <div class="carousel" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Flowery_cafe_in_Seongsu-dong.jpg?width=600" alt="성수 음식" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🥗</div>'"></div>
-          <div class="carousel-slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Flowery_cafe_in_Seongsu-dong.jpg?width=600" alt="브런치" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍳</div>'"></div>
-        </div>
-        <div class="carousel-overlay"></div>
-        <button class="carousel-btn prev">‹</button>
-        <button class="carousel-btn next">›</button>
-        <div class="carousel-dots">
-          <button class="carousel-dot active"></button>
-          <button class="carousel-dot"></button>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-tag"><span class="ko">트렌디 · 브런치</span><span class="ja">トレンド・ブランチ</span></span>
-        <h3 class="card-title">성수동 음식점 / 聖水洞グルメ</h3>
-        <p class="card-meta"><span class="ko">성수역~서울숲 트렌디 맛집</span><span class="ja">聖水駅〜ソウルの森トレンドグルメ</span></p>
-        <div class="map-btns">
-          <a class="map-btn naver" href="https://map.naver.com/v5/search/%EC%84%B1%EC%88%98%EB%8F%99+%EB%A7%9B%EC%A7%91" target="_blank" rel="noopener"><span class="dot"></span>네이버</a>
-          <a class="map-btn google" href="https://maps.google.com/?q=Seongsu+restaurants" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
-          <a class="map-btn apple" href="http://maps.apple.com/?q=Seongsu+restaurants" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</div>
-
-<!-- CONVENIENCE TAB -->
-<div id="convenience" class="tab-pane">
-  <p class="section-title"><span class="ko">편의시설</span><span class="ja">便利施設</span></p>
-  <p class="section-desc"><span class="ko">G3 호텔 주변 빠른 검색</span><span class="ja">G3ホテル周辺クイック検索</span></p>
-  <div class="conv-grid">
-
-    <div class="conv-card">
-      <div class="conv-icon">🏪</div>
-      <div class="conv-title"><span class="ko">편의점</span><span class="ja">コンビニ</span></div>
-      <div class="conv-sub">CU / GS25 / 세븐일레븐</div>
-      <div class="conv-btns">
-        <a class="conv-btn" href="https://map.naver.com/v5/search/G3+Hotel+Myeongdong+근처+편의점" target="_blank" rel="noopener">네이버</a>
-        <a class="conv-btn" href="https://maps.google.com/?q=convenience+store+near+G3+Hotel+Myeongdong" target="_blank" rel="noopener">Google</a>
       </div>
     </div>
 
-    <div class="conv-card">
-      <div class="conv-icon">💊</div>
-      <div class="conv-title"><span class="ko">약국</span><span class="ja">薬局</span></div>
-      <div class="conv-sub"><span class="ko">일반약/상비약</span><span class="ja">一般薬/常備薬</span></div>
-      <div class="conv-btns">
-        <a class="conv-btn" href="https://map.naver.com/v5/search/G3+Hotel+Myeongdong+근처+약국" target="_blank" rel="noopener">네이버</a>
-        <a class="conv-btn" href="https://maps.google.com/?q=pharmacy+near+G3+Hotel+Myeongdong" target="_blank" rel="noopener">Google</a>
+    <!-- 신세카이·텐노지 TAB -->
+    <div id="shinsekai" class="tab-pane">
+      <p class="section-title">신세카이·텐노지 핵심 스팟</p>
+      <p class="section-desc">츠텐카쿠와 쿠시카츠 · 1,200년 사찰</p>
+      <div class="cards-grid">
+
+        <!-- 츠텐카쿠 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://as1.ftcdn.net/v2/jpg/05/92/29/32/1000_F_592293294_n0MgSE5RhlG9Iv2grJdAwZbupddRWwpn.jpg" alt="츠텐카쿠" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🗼</div>'"></div>
+              <div class="carousel-slide"><img src="https://c8.alamy.com/comp/2WEDT4T/osaka-japan-december-7-2023-architectural-landmark-tsutenkaku-tower-illuminated-at-night-in-the-shinsekai-district-of-osaka-japan-2WEDT4T.jpg" alt="신세카이" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍢</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">전망대·랜드마크</span>
+            <h3 class="card-title">츠텐카쿠 / 通天閣 <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">신세카이의 상징 · 빌리켄 행운상이 있는 일반전망대 입장 무료</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Tsutenkaku+Tower" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Tsutenkaku+Tower" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- TOWER SLIDER -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://as1.ftcdn.net/v2/jpg/05/92/29/32/1000_F_592293294_n0MgSE5RhlG9Iv2grJdAwZbupddRWwpn.jpg" alt="타워슬라이더" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎢</div>'"></div>
+              <div class="carousel-slide"><img src="https://c8.alamy.com/comp/2WEDT4T/osaka-japan-december-7-2023-architectural-landmark-tsutenkaku-tower-illuminated-at-night-in-the-shinsekai-district-of-osaka-japan-2WEDT4T.jpg" alt="츠텐카쿠2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🛝</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">놀이시설</span>
+            <h3 class="card-title">TOWER SLIDER <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">츠텐카쿠 3층→지하1층 60m 스릴 미끄럼틀</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Tsutenkaku+Tower+Slider" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Tsutenkaku+Slider" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 시텐노지 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://c8.alamy.com/comp/W8DEY8/the-five-story-pagoda-at-shitennoji-temple-the-oldest-temple-in-osaka-japan-W8DEY8.jpg" alt="시텐노지" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🛕</div>'"></div>
+              <div class="carousel-slide"><img src="https://c8.alamy.com/comp/P1AF5N/five-storey-pagoda-building-of-the-main-shitennoji-temple-osaka-japan-P1AF5N.jpg" alt="오중탑" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏯</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">사찰·역사</span>
+            <h3 class="card-title">시텐노지 / 四天王寺 <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">593년 창건, 일본 최초의 관사 사찰. 가람·정원 무료 입장</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Shitennoji+Temple" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Shitennoji+Temple" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 텐노지 동물원 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://osaka-info.jp/spot/images/ad8723a7c9d29692c1bbe314e5a8090b40928d8c.jpeg" alt="동물원" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🦒</div>'"></div>
+              <div class="carousel-slide"><img src="https://c8.alamy.com/comp/2SXME96/king-of-the-beasts-gaou-male-lion-at-osaka-tennoji-zoo-2SXME96.jpg" alt="텐노지" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🐘</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">동물원</span>
+            <h3 class="card-title">텐노지 동물원 / 天王寺動物園 <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">100년 역사의 도심 동물원, 약 180종 사육</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Tennoji+Zoo" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Tennoji+Zoo" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 하루카스 300 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://c8.alamy.com/comp/3BKT9T4/abeno-harukas-building-is-a-300-meters-high-skyscraper-above-osaka-abenobashi-station-and-the-tallest-building-in-japan-3BKT9T4.jpg" alt="하루카스" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌆</div>'"></div>
+              <div class="carousel-slide"><img src="https://c8.alamy.com/comp/2BW6NYT/osaka-japan-december-28-2017-abeno-harukas-in-osaka-the-tallest-skyscraper-in-japan-300-meters-tall-2BW6NYT.jpg" alt="아베노" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏙️</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">전망대</span>
+            <h3 class="card-title">아베노 하루카스 300 / あべのハルカス <span class="pass-badge discount">PASS 10%↓</span></h3>
+            <p class="card-meta">300m 일본 최고층 빌딩 전망대. 사방 360° 절경</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Abeno+Harukas+300" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Abeno+Harukas" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 게이타쿠엔 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://thumbs.dreamstime.com/z/keitakuen-garden-autumn-beautiful-autumn-leaves-tennoji-osaka-japan-japanese-garden-keitakuen-garden-tennoji-park-339327132.jpg" alt="게이타쿠엔" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌿</div>'"></div>
+              <div class="carousel-slide"><img src="https://c8.alamy.com/comp/2A3X5EY/keitakuen-garden-in-tennoji-park-at-osaka-city-osaka-japan-2A3X5EY.jpg" alt="정원" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌸</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">정원</span>
+            <h3 class="card-title">게이타쿠엔 / 慶沢園 <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">텐노지공원 안 회유식 일본 정원, 스미토모家 소장</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Keitakuen+Garden" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Keitakuen+Garden" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 스파월드 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://japlanease.com/wp-content/uploads/2024/04/Spa-World-Osaka-Guide-43.jpg" alt="스파월드" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>♨️</div>'"></div>
+              <div class="carousel-slide"><img src="https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_630,w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/ok0qg6dlcz23k2ssbonw/Spa+World+Admission+Ticket+in+Osaka%252C+Japan.jpg" alt="스파" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🛀</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">온천·스파</span>
+            <h3 class="card-title">스파월드 / SPAWORLD <span class="pass-badge discount">PASS 200엔↓</span></h3>
+            <p class="card-meta">세계 11개국 컨셉의 대형 온천 테마파크</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Spa+World+Osaka" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Spa+World+Osaka" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 오사카 시립미술관 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/National_Museum_of_Art%2C_Osaka.jpg/600px-National_Museum_of_Art%2C_Osaka.jpg" alt="시립미술관" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏛️</div>'"></div>
+              <div class="carousel-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/National_Museum_of_Art%2C_Osaka.jpg/600px-National_Museum_of_Art%2C_Osaka.jpg" alt="미술관" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎨</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">미술관</span>
+            <h3 class="card-title">오사카시립미술관 / 大阪市立美術館 <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">텐노지공원 내. 동양 고미술품 8,400여 점 소장</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Osaka+City+Museum+of+Fine+Arts" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Osaka+City+Museum+of+Fine+Arts" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
 
-    <div class="conv-card">
-      <div class="conv-icon">💄</div>
-      <div class="conv-title"><span class="ko">올리브영</span><span class="ja">オリーブヤング</span></div>
-      <div class="conv-sub"><span class="ko">화장품/생활용품</span><span class="ja">コスメ/生活用品</span></div>
-      <div class="conv-btns">
-        <a class="conv-btn" href="https://map.naver.com/v5/search/G3+Hotel+Myeongdong+근처+올리브영" target="_blank" rel="noopener">네이버</a>
-        <a class="conv-btn" href="https://maps.google.com/?q=Olive+Young+near+G3+Hotel+Myeongdong" target="_blank" rel="noopener">Google</a>
+    <!-- 우메다·기타 TAB -->
+    <div id="umeda" class="tab-pane">
+      <p class="section-title">우메다·기타 핵심 스팟</p>
+      <p class="section-desc">오사카역 주변 도심 쇼핑·전망대</p>
+      <div class="cards-grid">
+
+        <!-- 우메다 스카이빌딩 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://www.skybldg.co.jp/lang/asset/img/top/mv_bg01.jpg" alt="스카이빌딩" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏙️</div>'"></div>
+              <div class="carousel-slide"><img src="https://osaka.b-cdn.net/wp-content/uploads/2022/03/IMG_3489-819x1024.jpg" alt="공중정원" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌌</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">전망대</span>
+            <h3 class="card-title">우메다 스카이빌딩 공중정원 / 空中庭園展望台 <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">173m 옥외 360° 전망대 · 야경 명소</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Umeda+Sky+Building" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Umeda+Sky+Building" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- HEP FIVE 관람차 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://umeda-sc.jp/wp2/wp-content/themes/hhp_umeda/assets/images/malls/hep-five/mv_pc.jpg" alt="HEPFIVE" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎡</div>'"></div>
+              <div class="carousel-slide"><img src="https://thumbs.dreamstime.com/b/yellow-ferris-wheel-don-quijote-popular-store-dotonbori-canal-night-osaka-japan-october-bright-illumination-huge-174259855.jpg" alt="관람차" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>❤️</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">관람차·쇼핑몰</span>
+            <h3 class="card-title">HEP FIVE 관람차 / HEP FIVE 観覧車 <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">우메다 도심 한복판의 빨간 관람차, 지상 106m</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=HEP+FIVE+Ferris+Wheel" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=HEP+FIVE" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 기누타니 천공 미술관 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://www.skybldg.co.jp/lang/asset/img/top/mv_bg01.jpg" alt="기누타니" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🖼️</div>'"></div>
+              <div class="carousel-slide"><img src="https://osaka.b-cdn.net/wp-content/uploads/2022/03/IMG_3489-819x1024.jpg" alt="천공" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎨</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">미술관</span>
+            <h3 class="card-title">기누타니 코지 천공미술관 <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">우메다 스카이빌딩 27층 · 화가 기누타니 코지의 갤러리</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Koji+Kinutani+Tenku+Art+Museum" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Kinutani+Tenku+Art+Museum" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 국립국제미술관 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/National_Museum_of_Art%2C_Osaka.jpg/600px-National_Museum_of_Art%2C_Osaka.jpg" alt="국제미술관" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏛️</div>'"></div>
+              <div class="carousel-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/National_Museum_of_Art%2C_Osaka.jpg/600px-National_Museum_of_Art%2C_Osaka.jpg" alt="미술관" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎭</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">현대미술</span>
+            <h3 class="card-title">국립국제미술관 / 国立国際美術館 <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">나카노시마. 시저 펠리 설계 메탈 구조 건축</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=National+Museum+of+Art+Osaka" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=National+Museum+of+Art+Osaka" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 오사카 주택 박물관 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://www.kanpai-japan.com/sites/default/files/uploads/2022/02/osaka-museum-of-housing-and-living-9.jpg" alt="주택박물관" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏘️</div>'"></div>
+              <div class="carousel-slide"><img src="https://www.kanpai-japan.com/sites/default/files/styles/og/public/uploads/2022/02/osaka-museum-of-housing-and-living-7.jpg" alt="옛거리" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏯</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">박물관·기모노</span>
+            <h3 class="card-title">오사카 주택박물관 / 大阪くらしの今昔館 <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">에도시대 오사카 거리 실물 크기 재현. 기모노 체험 가능</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Osaka+Museum+of+Housing+and+Living" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Osaka+Museum+of+Housing+and+Living" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 나카노시마 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://img.cooljapan-videos.com/files/articles/erkh9c3i/thumbnail/2f3d2a934a4677131a322b151655b21fc7516da4.jpg" alt="나카노시마" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌹</div>'"></div>
+              <div class="carousel-slide"><img src="https://cdn.osaka-info.jp/cache/page_translation_500/c97cb4de-04bf-11e8-a118-06326e701dd4.jpeg" alt="공회당" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏛️</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">강변·산책</span>
+            <h3 class="card-title">나카노시마 / 中之島</h3>
+            <p class="card-meta">강변 산책로와 장미정원, 중앙공회당 등 레트로 건축물</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Nakanoshima+Park+Osaka" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Nakanoshima+Park" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
 
-    <div class="conv-card">
-      <div class="conv-icon">🛒</div>
-      <div class="conv-title"><span class="ko">다이소</span><span class="ja">ダイソー</span></div>
-      <div class="conv-sub"><span class="ko">가성비 생활용품</span><span class="ja">コスパ生活用品</span></div>
-      <div class="conv-btns">
-        <a class="conv-btn" href="https://map.naver.com/v5/search/G3+Hotel+Myeongdong+근처+다이소" target="_blank" rel="noopener">네이버</a>
-        <a class="conv-btn" href="https://maps.google.com/?q=Daiso+near+G3+Hotel+Myeongdong" target="_blank" rel="noopener">Google</a>
+    <!-- 오사카성·베이 TAB -->
+    <div id="castle" class="tab-pane">
+      <p class="section-title">오사카성·베이 핵심 스팟</p>
+      <p class="section-desc">천수각과 항만의 거대 관람차</p>
+      <div class="cards-grid">
+
+        <!-- 오사카성 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://thumbs.dreamstime.com/z/main-tower-osaka-castle-over-cherry-blossom-flowers-view-sakura-nishinomaru-garden-old-japanese-heritage-building-119157239.jpg" alt="오사카성" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🏯</div>'"></div>
+              <div class="carousel-slide"><img src="https://www.shutterstock.com/shutterstock/photos/519030643/display_1500/stock-photo-view-osaka-castle-nishinomaru-garden-during-spring-time-when-japanese-cherry-blossom-or-519030643.jpg" alt="니시노마루" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌸</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">성곽·역사</span>
+            <h3 class="card-title">오사카성 천수각 / 大阪城天守閣 <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">도요토미 히데요시의 성 · 천수각, 니시노마루 정원 입장 무료</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Osaka+Castle" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Osaka+Castle" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 고자부네 놀잇배 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://cdn.osaka-info.jp/page_translation/content/8d52cc5e-04c0-11e8-852e-06326e701dd4.jpeg" alt="고자부네" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🛶</div>'"></div>
+              <div class="carousel-slide"><img src="https://cdn.osaka-info.jp/page_translation/content/8d2113e4-04c0-11e8-a91e-06326e701dd4.jpeg" alt="해자" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>⛴️</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">크루즈</span>
+            <h3 class="card-title">오사카성 고자부네 / 大阪城御座船 <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">오사카성 내해자를 도는 황금 놀잇배 (약 20분)</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Osaka+Castle+Gozabune" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Osaka+Castle+Gozabune" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 아쿠아라이너 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://onb-cdn.b-cdn.net/images-stn-osaka/166-Aqua-Liner-Osaka-River-Cruise1.jpg" alt="아쿠아라이너" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🚢</div>'"></div>
+              <div class="carousel-slide"><img src="https://enjyu-japan.travel/wp-content/uploads/2025/04/osaka-aqua-liner-scaled.webp" alt="강크루즈" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌊</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">수상버스</span>
+            <h3 class="card-title">아쿠아라이너 / アクアライナー <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">오사카성·나카노시마·텐만바시 일대 강 크루즈 (약 55분)</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Osaka+Aqua-liner" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Osaka+Aqua-liner" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 덴포잔 대관람차 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://c8.alamy.com/comp/2SY02HK/view-of-the-illuminated-tempozan-ferris-wheel-located-in-osaka-japan-at-tempozan-harbor-village-next-to-osaka-aquarium-2SY02HK.jpg" alt="덴포잔" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🎡</div>'"></div>
+              <div class="carousel-slide"><img src="https://www.kanpai-japan.com/sites/default/files/uploads/2022/06/osaka-tempozan-12.jpg" alt="덴포잔야경" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌅</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">관람차</span>
+            <h3 class="card-title">덴포잔 대관람차 / 天保山大観覧車 <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">112.5m 일본 최대급 관람차. USJ·아카시 해협까지 보임</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Tempozan+Ferris+Wheel" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Tempozan+Ferris+Wheel" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 산타마리아 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://www.kanpai-japan.com/sites/default/files/uploads/2022/06/osaka-tempozan-12.jpg" alt="산타마리아" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>⛵</div>'"></div>
+              <div class="carousel-slide"><img src="https://tse4.mm.bing.net/th/id/OIP.6-WU66x-XeCeFtl5jtKM8AHaE8?w=600&h=400&c=7&r=0&o=5&pid=1.7" alt="범선" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🚢</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">범선 크루즈</span>
+            <h3 class="card-title">산타마리아 / サンタマリア号 <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">콜럼버스 산타마리아호 모형선. 오사카만 45분 크루즈</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Santa+Maria+Osaka+Tempozan" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Santa+Maria+Osaka" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 레고랜드 디스커버리 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://maido-storage.oss-cn-hongkong.aliyuncs.com/maido/uploads/2023/04/legoland-osaka-main.jpg" alt="레고랜드" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🧱</div>'"></div>
+              <div class="carousel-slide"><img src="https://www.legolanddiscoverycenter.com/osaka/media/bfinxs4c/%e3%83%9f%e3%83%8b%e3%83%a9%e3%83%b3%e3%83%89.jpg" alt="마켓플레이스" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🛍️</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">테마파크</span>
+            <h3 class="card-title">레고랜드 디스커버리 센터 <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">덴포잔 마켓플레이스 내. 어린이 동반 가족여행 추천</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=LEGOLAND+Discovery+Center+Osaka" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=LEGOLAND+Discovery+Center+Osaka" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 사키시마 코스모타워 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://tabimaniajapan.com/wp-content/uploads/2025/07/Osaka_night_view_observatry_Sakishima-Cosmo-Tower_building-1536x2048.jpg" alt="코스모타워" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌃</div>'"></div>
+              <div class="carousel-slide"><img src="https://maido-storage.oss-cn-hongkong.aliyuncs.com/maido/uploads/2020/12/sakishima-cosmo-tower-observatory.jpg" alt="전망대" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🌆</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">전망대</span>
+            <h3 class="card-title">사키시마 코스모타워 / 咲洲庁舎展望台 <span class="pass-badge free">PASS 무료</span></h3>
+            <p class="card-meta">높이 256m 서일본 톱급 전망대. 항만 야경이 압권</p>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Sakishima+Cosmo+Tower+Observatory" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Sakishima+Cosmo+Tower" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
 
-    <div class="conv-card">
-      <div class="conv-icon">🏥</div>
-      <div class="conv-title"><span class="ko">병원/클리닉</span><span class="ja">病院/クリニック</span></div>
-      <div class="conv-sub"><span class="ko">외래 진료 가능</span><span class="ja">外来受診可</span></div>
-      <div class="conv-btns">
-        <a class="conv-btn" href="https://map.naver.com/v5/search/G3+Hotel+Myeongdong+근처+병원" target="_blank" rel="noopener">네이버</a>
-        <a class="conv-btn" href="https://maps.google.com/?q=clinic+near+G3+Hotel+Myeongdong" target="_blank" rel="noopener">Google</a>
+    <!-- FOOD TAB -->
+    <div id="food" class="tab-pane">
+      <p class="section-title">도톤보리 추천 음식점</p>
+      <p class="section-desc">타코야키·오코노미야키·쿠시카츠</p>
+      <div class="cards-grid">
+
+        <!-- 카니도라쿠 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://c8.alamy.com/comp/F1M5RA/osaka-dotonbori-exterior-of-famous-crab-restaurant-kani-doraku-with-F1M5RA.jpg" alt="카니도라쿠" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🦀</div>'"></div>
+              <div class="carousel-slide"><img src="https://c8.alamy.com/comp/F1M5T0/osaka-dotonbori-exterior-of-famous-crab-restaurant-kani-doraku-with-F1M5T0.jpg" alt="카니" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍱</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">대게 요리</span>
+            <h3 class="card-title">카니도라쿠 본점 / かに道楽 本店</h3>
+            <p class="card-meta">움직이는 대게 간판으로 유명. 코스 요리 전문</p>
+            <div class="info-row">
+              <a class="info-chip rating" href="https://tabelog.com/osaka/A2701/A270202/27001516/" target="_blank" rel="noopener"><span class="star">★</span> 3.37</a>
+              <span class="info-chip price">💴 점¥3,000~ / 저¥6,000~</span>
+            </div>
+            <div class="map-frame">
+              <div class="map-loading">📍 지도 로딩...</div>
+              <iframe loading="lazy" src="https://maps.google.com/maps?q=Kani+Doraku+Honten+Namba+Osaka&output=embed&z=16"></iframe>
+            </div>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Kani+Doraku+Honten+Namba" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn tabelog" href="https://tabelog.com/osaka/A2701/A270202/27001516/" target="_blank" rel="noopener"><span class="dot"></span>타베로그</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 쿠쿠루 타코야키 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://c8.alamy.com/comp/F1M5RP/japan-osaka-dotonbori-people-outside-takoyaki-restaurant-dotonbori-F1M5RP.jpg" alt="타코야키" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🐙</div>'"></div>
+              <div class="carousel-slide"><img src="https://thumbs.dreamstime.com/z/kukuru-best-takoyaki-dotonbori-osaka-s-its-giant-piece-octopus-sandwiched-dumplings-makes-93993249.jpg" alt="굽는중" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🔥</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">타코야키</span>
+            <h3 class="card-title">쿠쿠루 도톤보리 본점 / たこ家道頓堀くくる 本店</h3>
+            <p class="card-meta">큰 문어다리 통째로 들어간 "빅쿠리 타코야키"가 명물</p>
+            <div class="info-row">
+              <a class="info-chip rating" href="https://tabelog.com/osaka/A2701/A270202/27001546/" target="_blank" rel="noopener"><span class="star">★</span> 3.35</a>
+              <span class="info-chip price">💴 ¥1,000~2,999</span>
+              <span class="info-chip hours">🕐 평일12-19/주말11-20</span>
+            </div>
+            <div class="map-frame">
+              <div class="map-loading">📍 지도 로딩...</div>
+              <iframe loading="lazy" src="https://maps.google.com/maps?q=Kukuru+Dotonbori+Honten+Osaka&output=embed&z=16"></iframe>
+            </div>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Kukuru+Dotonbori+Takoyaki" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn tabelog" href="https://tabelog.com/osaka/A2701/A270202/27001546/" target="_blank" rel="noopener"><span class="dot"></span>타베로그</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 미즈노 오코노미야키 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://www.mytravelbuzzg.com/wp-content/uploads/Snapseed-14-e1570531684153.jpg" alt="오코노미야키" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🥞</div>'"></div>
+              <div class="carousel-slide"><img src="https://4.bp.blogspot.com/-9-JRk9Gdkg4/VOdIiUMM4PI/AAAAAAAAMfY/yKDwBaB5jJk/s1600/DSC06492.JPG" alt="미즈노" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍳</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">오코노미야키</span>
+            <h3 class="card-title">미즈노 / 美津の</h3>
+            <p class="card-meta">1945년 창업. 야마이모야키(산마즙 부침) 명물</p>
+            <div class="info-row">
+              <a class="info-chip rating" href="https://tabelog.com/osaka/A2701/A270202/27001278/" target="_blank" rel="noopener"><span class="star">★</span> 3.57</a>
+              <span class="info-chip badge100">🏆 Tabelog 百名店</span>
+              <span class="info-chip hours">🕐 11:00-22:00</span>
+            </div>
+            <div class="map-frame">
+              <div class="map-loading">📍 지도 로딩...</div>
+              <iframe loading="lazy" src="https://maps.google.com/maps?q=Mizuno+Okonomiyaki+Dotonbori&output=embed&z=16"></iframe>
+            </div>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Mizuno+Okonomiyaki+Dotonbori" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn tabelog" href="https://tabelog.com/osaka/A2701/A270202/27001278/" target="_blank" rel="noopener"><span class="dot"></span>타베로그</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 다루마 쿠시카츠 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://www.ryoko-traveler.com/blog/wp-content/uploads/2014/05/Eyecatch-Kushikatsu-daruma-Dotonbori-Namba.jpg" alt="다루마" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍢</div>'"></div>
+              <div class="carousel-slide"><img src="http://www.ryoko-traveler.com/blog/wp-content/uploads/2014/05/Appearance-Kushikatsu-daruma-Dotonbori-Namba.jpg" alt="쿠시카츠" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍤</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">쿠시카츠</span>
+            <h3 class="card-title">원조 쿠시카츠 다루마 도톤보리점 / 元祖串かつ だるま 道頓堀店</h3>
+            <p class="card-meta">"소스 두 번 찍기 금지" 원조집의 도톤보리 분점</p>
+            <div class="info-row">
+              <a class="info-chip rating" href="https://tabelog.com/osaka/A2701/A270202/27121895/" target="_blank" rel="noopener"><span class="star">★</span> 3.32</a>
+              <span class="info-chip price">💴 점¥1,000~ / 저¥2,000~</span>
+              <span class="info-chip hours">🕐 11:00-22:30</span>
+            </div>
+            <div class="map-frame">
+              <div class="map-loading">📍 지도 로딩...</div>
+              <iframe loading="lazy" src="https://maps.google.com/maps?q=Kushikatsu+Daruma+Dotonbori&output=embed&z=16"></iframe>
+            </div>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Kushikatsu+Daruma+Dotonbori" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn tabelog" href="https://tabelog.com/osaka/A2701/A270202/27121895/" target="_blank" rel="noopener"><span class="dot"></span>타베로그</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 이치란 라멘 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://japan-travel-explorer.com/wp-content/uploads/2024/11/31214205_m-800x533.webp" alt="이치란" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍜</div>'"></div>
+              <div class="carousel-slide"><img src="https://www.uncledeng.com/wp-content/uploads/2016/03/19-5.jpg" alt="이치란라멘" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🥢</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">돈코츠 라멘</span>
+            <h3 class="card-title">이치란 도톤보리 별관 / 一蘭 道頓堀店別館</h3>
+            <p class="card-meta">개인 부스에서 먹는 돈코츠 라멘. 24시간 영업 (본관은 폐점)</p>
+            <div class="info-row">
+              <a class="info-chip rating" href="https://tabelog.com/osaka/A2701/A270202/27084189/" target="_blank" rel="noopener"><span class="star">★</span> 3.08</a>
+              <span class="info-chip price">💴 ¥1,000~1,999</span>
+              <span class="info-chip hours">🕐 24시간</span>
+            </div>
+            <div class="map-frame">
+              <div class="map-loading">📍 지도 로딩...</div>
+              <iframe loading="lazy" src="https://maps.google.com/maps?q=Ichiran+Dotonbori+Bekkan+Osaka&output=embed&z=16"></iframe>
+            </div>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Ichiran+Dotonbori+Bekkan" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn tabelog" href="https://tabelog.com/osaka/A2701/A270202/27084189/" target="_blank" rel="noopener"><span class="dot"></span>타베로그</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 다이키스이산 회전초밥 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://cdn.osaka-info.jp/page_translation/content/9e559dea-04bd-11e8-9a87-06326e701dd4.jpeg" alt="회전초밥" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍣</div>'"></div>
+              <div class="carousel-slide"><img src="https://images.happycow.net/venues/1024/40/08/hcmp400822_2822616.jpeg" alt="초밥" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🐟</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">회전초밥</span>
+            <h3 class="card-title">다이키스이산 도톤보리점 / 大起水産 回転寿司 道頓堀店 <span class="pass-badge discount">PASS 10%↓</span></h3>
+            <p class="card-meta">신선한 산지 직송 초밥. 시내 5개 지점</p>
+            <div class="info-row">
+              <a class="info-chip rating" href="https://tabelog.com/osaka/A2701/A270202/27074081/" target="_blank" rel="noopener"><span class="star">★</span> 3.06</a>
+              <span class="info-chip price">💴 ¥2,000~3,999</span>
+            </div>
+            <div class="map-frame">
+              <div class="map-loading">📍 지도 로딩...</div>
+              <iframe loading="lazy" src="https://maps.google.com/maps?q=Daiki+Suisan+Dotonbori+Osaka&output=embed&z=16"></iframe>
+            </div>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Daiki+Suisan+Dotonbori" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn tabelog" href="https://tabelog.com/osaka/A2701/A270202/27074081/" target="_blank" rel="noopener"><span class="dot"></span>타베로그</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 시즈바시 푸게츠 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://enjoy-bkk.com/wp-content/uploads/2025/12/49ef72b19c9b2addea8db508ca9b00b7-1.jpg" alt="푸게츠" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🥞</div>'"></div>
+              <div class="carousel-slide"><img src="https://d1ralsognjng37.cloudfront.net/31b1971c-aa5b-4816-ae0d-887ac2754279.jpeg" alt="모단야키" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🍝</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">오코노미야키·모단야키</span>
+            <h3 class="card-title">쓰루하시 풍월 도톤보리점 / 鶴橋風月 道頓堀戎橋店 <span class="pass-badge discount">PASS 일부 무료</span></h3>
+            <p class="card-meta">70년 전통 오코노미야키 노포. 손님 앞에서 직접 구워줌</p>
+            <div class="info-row">
+              <a class="info-chip rating" href="https://tabelog.com/osaka/A2701/A270202/27019165/" target="_blank" rel="noopener"><span class="star">★</span> 3.09</a>
+              <span class="info-chip price">💴 점¥1,000~ / 저¥2,000~</span>
+              <span class="info-chip hours">🕐 11:00-23:00</span>
+            </div>
+            <div class="map-frame">
+              <div class="map-loading">📍 지도 로딩...</div>
+              <iframe loading="lazy" src="https://maps.google.com/maps?q=Tsuruhashi+Fugetsu+Dotonbori+Ebisubashi&output=embed&z=16"></iframe>
+            </div>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Tsuruhashi+Fugetsu+Dotonbori" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn tabelog" href="https://tabelog.com/osaka/A2701/A270202/27019165/" target="_blank" rel="noopener"><span class="dot"></span>타베로그</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 551 호라이 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://hoshinoresorts.com/jp/guide/wp-content/uploads/2025/05/551HORAI_11.jpg" alt="551" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🥟</div>'"></div>
+              <div class="carousel-slide"><img src="https://kansai-odyssey.com/wp-content/uploads/2018/01/IMG_5519.jpg" alt="호라이" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🥡</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">부타만(고기만두)</span>
+            <h3 class="card-title">551 호라이 본점 / 551蓬莱 本店</h3>
+            <p class="card-meta">"있을 때와 없을 때"의 그 부타만. 1946년 창업, 하루 17만개 판매</p>
+            <div class="info-row">
+              <a class="info-chip rating" href="https://tabelog.com/osaka/A2701/A270202/27001312/" target="_blank" rel="noopener"><span class="star">★</span> 3.47</a>
+              <span class="info-chip price">💴 부타만 1개 ¥210</span>
+              <span class="info-chip hours">🕐 10:00-22:00</span>
+            </div>
+            <div class="map-frame">
+              <div class="map-loading">📍 지도 로딩...</div>
+              <iframe loading="lazy" src="https://maps.google.com/maps?q=551+Horai+Honten+Namba+Osaka&output=embed&z=16"></iframe>
+            </div>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=551+Horai+Honten+Namba" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn tabelog" href="https://tabelog.com/osaka/A2701/A270202/27001312/" target="_blank" rel="noopener"><span class="dot"></span>타베로그</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 오사카 타코야키 마켓 -->
+        <article class="card">
+          <div class="carousel" data-index="0">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="https://maido-storage.oss-cn-hongkong.aliyuncs.com/maido/uploads/2020/07/osaka-takoyaki-museum-01.jpg" alt="타코야키마켓" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🐙</div>'"></div>
+              <div class="carousel-slide"><img src="https://c8.alamy.com/comp/F1M5RP/japan-osaka-dotonbori-people-outside-takoyaki-restaurant-dotonbori-F1M5RP.jpg" alt="타코야키" loading="lazy" onerror="this.parentElement.innerHTML='<div class=img-placeholder>🥢</div>'"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active"></button>
+              <button class="carousel-dot"></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">타코야키 푸드코트</span>
+            <h3 class="card-title">오사카 타코야키 뮤지엄 / 大阪たこ焼ミュージアム <span class="pass-badge discount">PASS 음료 50%↓</span></h3>
+            <p class="card-meta">덴포잔 마켓플레이스 내. 인기 타코야키점 5곳 모음</p>
+            <div class="info-row">
+              <span class="info-chip price">💴 점포별 ¥500~1,000</span>
+              <span class="info-chip hours">🕐 11:00-20:00</span>
+            </div>
+            <div class="map-frame">
+              <div class="map-loading">📍 지도 로딩...</div>
+              <iframe loading="lazy" src="https://maps.google.com/maps?q=Osaka+Takoyaki+Museum+Tempozan&output=embed&z=16"></iframe>
+            </div>
+            <div class="map-btns">
+              <a class="map-btn google" href="https://maps.google.com/?q=Osaka+Takoyaki+Museum" target="_blank" rel="noopener"><span class="dot"></span>Google</a>
+              <a class="map-btn apple" href="http://maps.apple.com/?q=Osaka+Takoyaki+Museum" target="_blank" rel="noopener"><span class="dot"></span>Apple</a>
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
 
-    <div class="conv-card">
-      <div class="conv-icon">💴</div>
-      <div class="conv-title"><span class="ko">ATM / 환전</span><span class="ja">ATM / 両替</span></div>
-      <div class="conv-sub"><span class="ko">현금 인출/환전소</span><span class="ja">現金/両替所</span></div>
-      <div class="conv-btns">
-        <a class="conv-btn" href="https://map.naver.com/v5/search/G3+Hotel+Myeongdong+근처+ATM+환전" target="_blank" rel="noopener">네이버</a>
-        <a class="conv-btn" href="https://maps.google.com/?q=ATM+money+exchange+near+G3+Hotel+Myeongdong" target="_blank" rel="noopener">Google</a>
+    <!-- PASS TAB -->
+    <div id="pass" class="tab-pane">
+
+      <!-- SUBWAY MAP -->
+      <div class="subway-card">
+        <div class="subway-map-frame">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Osaka_Metro_Linemap_en.svg/1000px-Osaka_Metro_Linemap_en.svg.png" alt="오사카 메트로 노선도" onerror="this.onerror=null;this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Osaka_Metro_Linemap.svg?width=900';">
+        </div>
+        <div class="subway-lines">
+          <span class="line-chip line-M">M 미도스지선</span>
+          <span class="line-chip line-T">T 타니마치선</span>
+          <span class="line-chip line-Y">Y 요츠바시선</span>
+          <span class="line-chip line-C">C 츄오선</span>
+          <span class="line-chip line-S">S 센니치마에선</span>
+          <span class="line-chip line-K">K 사카이스지선</span>
+          <span class="line-chip line-N">N 나가호리츠루미료쿠치선</span>
+          <span class="line-chip line-I">I 이마자토스지선</span>
+          <span class="line-chip line-NT">P 뉴트램</span>
+        </div>
       </div>
+
+      <!-- KEY ROUTES TIP -->
+      <div class="tip-card">
+        <h4>🗺️ 도톤보리 기준 주요 노선</h4>
+        <ul>
+          <li><b>난바역</b> (도톤보리 도보 5분) — 미도스지(M)·요츠바시(Y)·센니치마에(S)</li>
+          <li><b>닛폰바시역</b> (쿠로몬·덴덴타운 인접) — 사카이스지(K)·센니치마에(S)</li>
+          <li>난바 → <b>우메다</b>(스카이빌딩·HEP Five): 미도스지선 9분</li>
+          <li>난바 → <b>텐노지</b>(하루카스·동물원): 미도스지선 6분</li>
+          <li>난바 → <b>오사카성</b>(타니마치욘초메): 센니치마에→타니마치선 환승 15분</li>
+          <li>난바 → <b>덴포잔</b>(대관람차·산타마리아): 미도스지→츄오선 환승, 오사카코역 약 18분</li>
+          <li>난바 → <b>신세카이</b>(츠텐카쿠): 미도스지선 5분 (도부츠엔마에역)</li>
+        </ul>
+      </div>
+
+      <!-- FREE LIST -->
+      <div class="pass-list-wrap">
+        <h4>✅ 주유패스 무료 입장 시설 (40여개)</h4>
+        <p class="area-sub">난바·도톤보리 / 신세카이·텐노지 / 우메다 / 오사카성 / 덴포잔 등</p>
+        <ul class="pass-list">
+          <li><span class="name">돈보리 리버 크루즈</span><span class="cat">난바</span></li>
+          <li><span class="name">WONDER CRUISE</span><span class="cat">닛폰바시</span></li>
+          <li><span class="name">가미가타 우키요에관</span><span class="cat">난바</span></li>
+          <li><span class="name">츠텐카쿠 일반전망대</span><span class="cat">신세카이</span></li>
+          <li><span class="name">TOWER SLIDER</span><span class="cat">신세카이</span></li>
+          <li><span class="name">츠텐카쿠 Dive&Walk</span><span class="cat">신세카이</span></li>
+          <li><span class="name">덴노지 동물원</span><span class="cat">텐노지</span></li>
+          <li><span class="name">게이타쿠엔</span><span class="cat">텐노지</span></li>
+          <li><span class="name">시텐노지 가람</span><span class="cat">시텐노지</span></li>
+          <li><span class="name">오사카시립미술관</span><span class="cat">텐노지</span></li>
+          <li><span class="name">Shinsekai ZAZA</span><span class="cat">신세카이</span></li>
+          <li><span class="name">우메다 스카이빌딩 공중정원</span><span class="cat">우메다</span></li>
+          <li><span class="name">기누타니 코지 천공미술관</span><span class="cat">우메다</span></li>
+          <li><span class="name">HEP FIVE 관람차</span><span class="cat">우메다</span></li>
+          <li><span class="name">오사카 주택박물관</span><span class="cat">덴진바시</span></li>
+          <li><span class="name">국립국제미술관</span><span class="cat">히고바시</span></li>
+          <li><span class="name">오사카 기업가 박물관</span><span class="cat">혼마치</span></li>
+          <li><span class="name">오사카성 천수각</span><span class="cat">오사카성</span></li>
+          <li><span class="name">니시노마루 정원</span><span class="cat">오사카성</span></li>
+          <li><span class="name">오사카성 YAGURA 망루</span><span class="cat">오사카성</span></li>
+          <li><span class="name">KAIYODO 피규어 뮤지엄</span><span class="cat">오사카성</span></li>
+          <li><span class="name">오사카성 고자부네 놀잇배</span><span class="cat">오사카성</span></li>
+          <li><span class="name">아쿠아라이너 수상버스</span><span class="cat">오사카성</span></li>
+          <li><span class="name">YORIMICHI 선셋 크루즈</span><span class="cat">오사카성</span></li>
+          <li><span class="name">오카와강 벚꽃 크루즈</span><span class="cat">오사카성</span></li>
+          <li><span class="name">오사카 역사박물관</span><span class="cat">오사카성</span></li>
+          <li><span class="name">피스 오사카</span><span class="cat">오사카성</span></li>
+          <li><span class="name">덴포잔 대관람차</span><span class="cat">덴포잔</span></li>
+          <li><span class="name">산타마리아 데이 크루즈</span><span class="cat">덴포잔</span></li>
+          <li><span class="name">산타마리아 트와일라이트</span><span class="cat">덴포잔</span></li>
+          <li><span class="name">캡틴 라인</span><span class="cat">덴포잔</span></li>
+          <li><span class="name">레고랜드 디스커버리 센터</span><span class="cat">덴포잔</span></li>
+          <li><span class="name">GLION MUSEUM</span><span class="cat">덴포잔</span></li>
+          <li><span class="name">사키시마 코스모타워 전망대</span><span class="cat">사키시마</span></li>
+          <li><span class="name">사쿠야코노하나관</span><span class="cat">츠루미</span></li>
+          <li><span class="name">오사카 시립 자연사 박물관</span><span class="cat">나가이</span></li>
+          <li><span class="name">오사카 시립 나가이 식물원</span><span class="cat">나가이</span></li>
+          <li><span class="name">사카이 리쇼노모리</span><span class="cat">사카이</span></li>
+          <li><span class="name">사카이시 박물관</span><span class="cat">사카이</span></li>
+        </ul>
+      </div>
+
+      <!-- DISCOUNT LIST -->
+      <div class="pass-list-wrap">
+        <h4>💴 주요 할인 혜택</h4>
+        <p class="area-sub">유료 시설/식당의 입장료·식사비 할인</p>
+        <ul class="pass-list">
+          <li><span class="name">하루카스 300 전망대</span><span class="cat">10%↓</span></li>
+          <li><span class="name">우메다 스카이빌딩(15시 이후)</span><span class="cat">10%↓</span></li>
+          <li><span class="name">스파월드</span><span class="cat">200엔↓</span></li>
+          <li><span class="name">돈키호테 도톤보리 관람차</span><span class="cat">100엔↓</span></li>
+          <li><span class="name">닌자 트릭 하우스</span><span class="cat">500엔↓</span></li>
+          <li><span class="name">나카노시마 리버 크루즈</span><span class="cat">500엔↓</span></li>
+          <li><span class="name">다이키스이산 회전초밥(5점포)</span><span class="cat">10%↓</span></li>
+          <li><span class="name">돈가스 KYK 난바·우메다점</span><span class="cat">10%↓</span></li>
+          <li><span class="name">오사카 타코야키 뮤지엄</span><span class="cat">음료 50%↓</span></li>
+          <li><span class="name">Time Out Market Osaka</span><span class="cat">음료 반값</span></li>
+          <li><span class="name">시즈바시 푸게츠</span><span class="cat">메뉴 일부 무료</span></li>
+        </ul>
+      </div>
+
+      <!-- TIP -->
+      <div class="tip-card">
+        <h4>💡 효율적인 주유패스 활용 팁</h4>
+        <ul>
+          <li>아침 일찍 시작: 우메다 스카이빌딩 → HEP FIVE → 오사카성 → 나카노시마 → 야경은 도톤보리</li>
+          <li>덴포잔·텐노지·오사카성은 동선이 분산되어 있어 하루 1구역씩 묶기 권장</li>
+          <li>전망대 입장이 많으면 본전 회수 쉬움 (츠텐카쿠+우메다+코스모타워만 해도 3,300엔 이상)</li>
+          <li>구매처: 간사이공항 관광안내소, 난바·우메다 관광안내소, 호텔, 온라인 (Klook·KKday)</li>
+          <li>사철도 일부 사용 가능 (한큐·한신·케이한·킨테츠·난카이 일부 구간)</li>
+        </ul>
+      </div>
+
     </div>
 
-  </div>
-</div>
-```
+    <!-- CONVENIENCE TAB -->
+    <div id="convenience" class="tab-pane">
+      <p class="section-title">편의시설</p>
+      <p class="section-desc">도톤보리·난바 주변 빠른 검색</p>
+      <div class="conv-grid">
+
+        <div class="conv-card">
+          <div class="conv-icon">🏪</div>
+          <div class="conv-title">편의점</div>
+          <div class="conv-sub">7-Eleven / FamilyMart / Lawson</div>
+          <div class="conv-btns">
+            <a class="conv-btn" href="https://maps.google.com/?q=convenience+store+Dotonbori" target="_blank" rel="noopener">Google</a>
+            <a class="conv-btn" href="http://maps.apple.com/?q=convenience+store+Dotonbori" target="_blank" rel="noopener">Apple</a>
+          </div>
+        </div>
+
+        <div class="conv-card">
+          <div class="conv-icon">💊</div>
+          <div class="conv-title">드럭스토어</div>
+          <div class="conv-sub">Matsumoto Kiyoshi / Sundrug</div>
+          <div class="conv-btns">
+            <a class="conv-btn" href="https://maps.google.com/?q=drugstore+Dotonbori" target="_blank" rel="noopener">Google</a>
+            <a class="conv-btn" href="http://maps.apple.com/?q=Matsumoto+Kiyoshi+Dotonbori" target="_blank" rel="noopener">Apple</a>
+          </div>
+        </div>
+
+        <div class="conv-card">
+          <div class="conv-icon">🛍️</div>
+          <div class="conv-title">돈키호테</div>
+          <div class="conv-sub">24시간 잡화점</div>
+          <div class="conv-btns">
+            <a class="conv-btn" href="https://maps.google.com/?q=Don+Quijote+Dotonbori" target="_blank" rel="noopener">Google</a>
+            <a class="conv-btn" href="http://maps.apple.com/?q=Don+Quijote+Dotonbori" target="_blank" rel="noopener">Apple</a>
+          </div>
+        </div>
+
+        <div class="conv-card">
+          <div class="conv-icon">🛒</div>
+          <div class="conv-title">다이소</div>
+          <div class="conv-sub">100엔숍</div>
+          <div class="conv-btns">
+            <a class="conv-btn" href="https://maps.google.com/?q=Daiso+Namba" target="_blank" rel="noopener">Google</a>
+            <a class="conv-btn" href="http://maps.apple.com/?q=Daiso+Namba" target="_blank" rel="noopener">Apple</a>
+          </div>
+        </div>
+
+        <div class="conv-card">
+          <div class="conv-icon">💴</div>
+          <div class="conv-title">ATM/환전</div>
+          <div class="conv-sub">세븐은행/우체국</div>
+          <div class="conv-btns">
+            <a class="conv-btn" href="https://maps.google.com/?q=Seven+Bank+ATM+Dotonbori" target="_blank" rel="noopener">Google</a>
+            <a class="conv-btn" href="http://maps.apple.com/?q=ATM+Dotonbori" target="_blank" rel="noopener">Apple</a>
+          </div>
+        </div>
+
+        <div class="conv-card">
+          <div class="conv-icon">🚆</div>
+          <div class="conv-title">난바역</div>
+          <div class="conv-sub">메트로·JR·난카이</div>
+          <div class="conv-btns">
+            <a class="conv-btn" href="https://maps.google.com/?q=Namba+Station" target="_blank" rel="noopener">Google</a>
+            <a class="conv-btn" href="http://maps.apple.com/?q=Namba+Station" target="_blank" rel="noopener">Apple</a>
+          </div>
+        </div>
+
+        <div class="conv-card">
+          <div class="conv-icon">🛂</div>
+          <div class="conv-title">관광 안내소</div>
+          <div class="conv-sub">난바·우메다·간사이공항</div>
+          <div class="conv-btns">
+            <a class="conv-btn" href="https://maps.google.com/?q=Namba+Tourist+Information+Center" target="_blank" rel="noopener">Google</a>
+            <a class="conv-btn" href="http://maps.apple.com/?q=Namba+Tourist+Information" target="_blank" rel="noopener">Apple</a>
+          </div>
+        </div>
+
+        <div class="conv-card">
+          <div class="conv-icon">📶</div>
+          <div class="conv-title">무료 Wi-Fi</div>
+          <div class="conv-sub">Osaka Free Wi-Fi</div>
+          <div class="conv-btns">
+            <a class="conv-btn" href="https://www.osaka-info.jp/en/page/wi-fi/" target="_blank" rel="noopener">접속안내</a>
+            <a class="conv-btn" href="https://maps.google.com/?q=Wi-Fi+spot+Dotonbori" target="_blank" rel="noopener">Map</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
   </div>
 
   <script>
   (function() {
-    // Lang switch
-    document.querySelectorAll('.lang-btn').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-        document.body.classList.remove('lang-ko', 'lang-ja');
-        document.body.classList.add('lang-' + btn.dataset.lang);
-      });
-    });
-
     // Tab switch
     document.querySelectorAll('.tab-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
